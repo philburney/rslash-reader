@@ -24,8 +24,17 @@ const ArticlePreviews = () => {
      
         return (
             <>
-        <section className='articles-container'>
-        <h2 className='section-title'>All Articles</h2>
+            <section className='articles-container'>
+            <h2 className='section-title'>Popular on Reddit</h2>
+            <ul>
+            
+                {articles.map((article,index)=>{
+                    return (
+                    <li key={index}>{article}</li>
+                    )
+                })}
+
+            </ul>
         </section>
     </>
         );
