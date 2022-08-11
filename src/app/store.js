@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import articlePreviewsReducer from '../features/articlePreviews/articlePreviewsSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    articlePreviews:articlePreviewsReducer,
+    
   },
 });
