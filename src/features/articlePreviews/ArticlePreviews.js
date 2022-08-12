@@ -5,9 +5,10 @@ import {
     selectAllPreviews,
     isLoading, 
     addTitles} from "./articlePreviewsSlice";
-    const titleArray=loadPreviews();
+    const articleArray=loadPreviews();
+    
    
-    console.log(titleArray);
+    
 
 
 
@@ -16,7 +17,7 @@ const ArticlePreviews = () => {
          const articles = useSelector(selectAllPreviews);
          const loading = useSelector(isLoading);
           
-         useEffect(() => {dispatch(addTitles(titleArray))
+         useEffect(() => {dispatch(addTitles(articleArray))
          },[])
 
          
@@ -30,7 +31,10 @@ const ArticlePreviews = () => {
             
                 {articles.map((article,index)=>{
                     return (
-                    <li key={index}>{article}</li>
+                    <>
+                    <li key={index}>{article.title}</li>
+                    <img src={article.thumbnail} />
+                    </>
                     )
                 })}
 

@@ -11,11 +11,11 @@ import './index.css';
 const container = document.getElementById('app');
 const root = createRoot(container); 
 root.render(
-<React.StrictMode>
+// { <React.StrictMode> }
 <Provider store={store}>
   <App tab="home" store={store} />
 </Provider>
-</React.StrictMode>
+// </React.StrictMode>
 );
 
 
