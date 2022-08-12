@@ -20,28 +20,25 @@ const ArticlePreviews = () => {
          useEffect(() => {dispatch(addTitles(articleArray))
          },[])
 
-         
+       
         
      
         return (
             <>
             <section className='articles-container'>
-            <h2 className='section-title'>Popular on Reddit</h2>
-            <ul>
-            
-                {articles.map((article,index)=>{
-                    return (
-                    <>
-                    <li key={index}>{article.title}</li>
-                    <img src={article.thumbnail} />
-                    </>
-                    )
-                })}
-
-            </ul>
-        </section>
-    </>
-        );
+                <h2 className='section-title'>Popular on Reddit</h2>
+                    <ul>
+                            {articles.map((article, index) =>
+                            // Only do this if items have no stable IDs
+                            <li key={index}>
+                                <h2>{article.title}</h2>
+                                <br></br>
+                                <img src={article.thumbnail} />
+                            </li>
+                            )}
+                    </ul>
+            </section>
+            </>)
 
 
 
