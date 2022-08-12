@@ -29,9 +29,8 @@ const ArticlePreviews = () => {
                 <h2 className='section-title'>Popular on Reddit</h2>
                     <ul>
                             {articles.map((article, index) =>
-                            // Only do this if items have no stable IDs
                             <li key={index}>
-                                <h2>{article.title}</h2>
+                              <a href={article.permalink} target="_isblank"> <h3>{article.title}</h3></a>
                                 <br></br>
                                 <img src={article.thumbnail} />
                             </li>
