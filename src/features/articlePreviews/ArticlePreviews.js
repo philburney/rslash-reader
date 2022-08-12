@@ -30,9 +30,13 @@ const ArticlePreviews = () => {
                     <ul>
                             {articles.map((article, index) =>
                             <li key={index}>
-                              <a href={article.permalink} target="_isblank"> <h3>{article.title}</h3></a>
+                              <a href={article.permalink} target="_isblank"> <h3>{article.title}</h3>
+                                
+                                <p>{article.subreddit}</p>
                                 <br></br>
                                 <img src={article.thumbnail} />
+                                
+                                </a>
                             </li>
                             )}
                     </ul>
