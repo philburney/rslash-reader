@@ -8,11 +8,8 @@ body {
   background-color:white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
+/* Formatting for the main title "Rslash Reader */
 h1 {
   color: red;
   text-transform: uppercase;
@@ -24,6 +21,8 @@ h1 {
 
 }
 
+/* Formatting for the page title "Popular Subreddits" */
+
 h2 {
   color: red;
   padding-left: 4rem;
@@ -31,6 +30,12 @@ h2 {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+
+
+/* This is the list of articles in the Previews. It uses Flexbox
+the flex-wrap allows multiple items per line.
+list-style-type removes the bullets
+the items stretch to fill the box and are at the start of the grid */
 ul {
 
   display: flex;
@@ -46,6 +51,8 @@ ul {
 
 }
 
+/* This is formatting the tiles. It puts a border and shaddow around them and colours them*/
+
 .tilearea {
   width:23%;
   margin: 0.3rem;
@@ -56,10 +63,13 @@ ul {
   box-shadow: 2px 3px grey;
   }
 
+
+  /* This is so that the tile changes colour slightly when the user is on it to highlight which they are clicking on */
   .tilearea:hover {
    
     background-color: wheat;
   }
+
 
 .tile {
 
@@ -68,16 +78,17 @@ ul {
 
 }
 
+/* This is formatting the tile title */
 h3 {
   text-align: center;
   padding: 0.5rem 0.6rem 0;
   color: gray;
   text-transform: capitalize;
   font: arial;
-
   margin: 0;
 }
 
+/*This formats the subreddit*/
 .sub {
   font-size: 0.8rem;
   margin-top: 0;
@@ -94,21 +105,26 @@ h3 {
 
 p.sub {
   margin-left: auto;
-
 }
+
+/*This makes the subreddit bold when hovered over to draw attention that it will go to the subbreddit not the article*/
 .sub:hover {
   font-weight: 900;
 }
 
+/*This is  formatting the thumbnail */
 img {
   display: block;
   margin: 0px auto;
   padding: 0.5rem;
 }
 
+/*This removes the hyperlink underline */
 a {
   text-decoration: none;
 }
+
+/*This changes the cursor to signify the user is over a clickable link*/
 a:hover {
   cursor: pointer;
 }
