@@ -57,7 +57,7 @@ ul {
   }
 
   .tilearea:hover {
-    cursor: pointer;
+   
     background-color: wheat;
   }
 
@@ -109,5 +109,9 @@ img {
 a {
   text-decoration: none;
 }
+a:hover {
+  cursor: pointer;
+}
+
 
 

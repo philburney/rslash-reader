@@ -21,8 +21,6 @@ const ArticlePreviews = () => {
           
          useEffect(() => {dispatch(addTitles(articleArray))
          },[dispatch])
-
-       
         
      
         return (
