@@ -20,7 +20,7 @@ const ArticlePreviews = () => {
          const loading = useSelector(isLoading);
           
          useEffect(() => {dispatch(addTitles(articleArray))
-         },[])
+         },[dispatch])
 
        
         
