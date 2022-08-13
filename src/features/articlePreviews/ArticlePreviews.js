@@ -5,7 +5,9 @@ import {
     selectAllPreviews,
     isLoading, 
     addTitles} from "./articlePreviewsSlice";
-    const articleArray=loadPreviews();
+import { Tile } from "../../components/Tile";
+
+const articleArray=loadPreviews();
     
    
     
@@ -29,15 +31,7 @@ const ArticlePreviews = () => {
                 <h2 className='section-title'>Popular on Reddit</h2>
                     <ul>
                             {articles.map((article, index) =>
-                            <li key={index}>
-                              <a href={article.permalink} target="_isblank"> <h3>{article.title}</h3>
-                                
-                                <p>{article.subreddit}</p>
-                                <br></br>
-                                <img src={article.thumbnail} />
-                                
-                                </a>
-                            </li>
+                              <Tile article={article} key={index} />
                             )}
                     </ul>
             </section>
