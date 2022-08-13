@@ -6,11 +6,11 @@ export const Tile = ({article}) => {
 
     return (
     <>
-    <div name="tile" >
-        <li >
-            <a href={permalink} target="_isblank"> <h3>{title}</h3>
-                <p name="sub">{subreddit}</p>
-                <br></br>
+    <div name="tile" className="tilearea">
+        <li className="tile">
+            <a href={permalink} target="_isblank">
+                 <h3>{title}</h3>
+                <p className="sub">{subreddit}</p>
                 <img src={thumbnail} alt="" />
             </a>
         </li>

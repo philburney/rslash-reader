@@ -5,9 +5,109 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  color: red;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  font-size: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+
+}
+
+h2 {
+  color: red;
+  padding-left: 4rem;
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+ul {
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  list-style-type: none;
+  padding: 0 0;
+  margin:0 7%;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: flex-start;
+                                                                  
+
+}
+
+.tilearea {
+  width:23%;
+  margin: 0.3rem;
+  background-color: antiquewhite;
+  overflow: auto;
+  border: 3px lightcoral solid;
+  border-radius: 7px;
+  box-shadow: 2px 3px grey;
+  }
+
+  .tilearea:hover {
+    cursor: pointer;
+    background-color: wheat;
+  }
+
+.tile {
+
+  margin: auto;
+ 
+
+}
+
+h3 {
+  text-align: center;
+  padding: 0.5rem 0.6rem 0;
+  color: gray;
+  text-transform: capitalize;
+  font: arial;
+
+  margin: 0;
+}
+
+.sub {
+  font-size: 0.8rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: right;
+  padding-right: 2rem;
+  padding-bottom: 0rem;
+  color: red;
+  text-decoration: underline;
+  width: fit-content;
+  text-align: right;
+ 
+}
+
+p.sub {
+  margin-left: auto;
+
+}
+.sub:hover {
+  font-weight: 900;
+}
+
+img {
+  display: block;
+  margin: 0px auto;
+  padding: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+

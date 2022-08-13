@@ -6,13 +6,18 @@ import ArticlePreviews from "../features/articlePreviews/ArticlePreviews"
 
 
 function App() {
-  return (
-    <div className="app">
   
+  return (
+    
+    <div className="app">
+     
+        <h1>Rslash Reader</h1>
+        <img src="./reddit_icon.png" alt="reddit logo" width="60px" />
          <ArticlePreviews />
       
     
     </div>
+    
   );
 }
 
