@@ -11,7 +11,7 @@ import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 export const loadAllPreviews = createAsyncThunk(
     'articlePreviews/loadAllPreviews',
     async () => {
-      const data = await fetch("http://www.reddit.com/r/popular.json");
+      const data = await fetch("https://www.reddit.com/r/popular.json");
       const json = await data.json();
       return json;
     }
@@ -36,7 +36,8 @@ export const articlePreviewsSlice = createSlice ({
         // }
     ],
     isloadingArticlePreviews: false,
-    hasError:false
+    hasError:false,
+    sectionTitle:"Popular on Reddit"
     },
         extraReducers: (builder) => {
             builder
@@ -54,8 +55,10 @@ export const articlePreviewsSlice = createSlice ({
                 let incomingLink="";
                 let incomingSub ="";
                  //This is picking out the data and creating an array of objects. Each object will have a title, thumbnail, permalink to the article and the subbreddit
-                //The JSON return 25 Articles 
-                for (let i=0;i<25;i++) {
+                //The JSON return all the Articles 
+                const numberOfTiles =dataReturned.data.children.length ;
+                
+                for (let i=0;i<numberOfTiles;i++) {
                     //These are extracting the data needed from the JSON 
                     incomingTitle = dataReturned.data.children[i].data.title;
                     incomingLink =  "https://reddit.com" + dataReturned.data.children[i].data.permalink;
@@ -93,6 +96,7 @@ export const articlePreviewsSlice = createSlice ({
 
 export const selectAllPreviews = state => state.articlePreviews.articles;
 export const isLoading = state => state.articlePreviews.isLoadingArticlePreviews;
+export const selectTitle = state => state.articlePreviews.sectionTitle;
 
 //This is the export of the reducer that needs to then be imported by the store.js Note the word reducer is singular!
 export default articlePreviewsSlice.reducer;

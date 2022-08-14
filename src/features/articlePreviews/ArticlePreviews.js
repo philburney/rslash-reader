@@ -14,7 +14,8 @@ import { useDispatch,useSelector } from "react-redux";
 import { 
     loadAllPreviews,
     selectAllPreviews,
-    isLoading
+    isLoading,
+    selectTitle
 } from "./articlePreviewsSlice";
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
@@ -37,6 +38,7 @@ import { Tile } from "../../components/Tile";
          //notice there are no brackets on the select name.
          const articles = useSelector(selectAllPreviews);
          const loading = useSelector(isLoading);
+         const sectionTitle=useSelector(selectTitle);
           
 
          //This is a standard UseEffect function from react and will run anytime the dispatch is used.
@@ -56,7 +58,7 @@ import { Tile } from "../../components/Tile";
             <>
             <section className='articles-container'>
                 {/*  This is the section header. we only want it to appear once.*/ }
-                <h2 className='section-title'>Popular on Reddit</h2> 
+                <h2 className='section-title'>{sectionTitle}</h2> 
                 {/*  This is the array of articles being passed from the logic component which is then being mapped and each instance sent to create an item on the page */ }
                     <ul>
                        {/*The Tile Component is being called for each individual article and passed to the presentation component (called Tile) to be displayed. The Tile needs an unique key (in this case the index) and the article object which has all the information it needs. This is being passed as prop. */}
