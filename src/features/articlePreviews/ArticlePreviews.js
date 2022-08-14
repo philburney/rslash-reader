@@ -17,7 +17,9 @@ import {
     isLoading,
     selectTitle,
     URL,
-    setSectionTitle
+    setSectionTitle,
+    isRoot,
+    setBackButton
 } from "./articlePreviewsSlice";
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
@@ -42,7 +44,8 @@ import { Tile } from "../../components/Tile";
          const loading = useSelector(isLoading);
          const sectionTitle=useSelector(selectTitle);
          const currentUrl= useSelector(URL);
-         console.log(currentUrl);
+         const onParent= useSelector(isRoot);
+
           
 
          
@@ -61,6 +64,7 @@ import { Tile } from "../../components/Tile";
             const subreddit="Popular on Reddit";
             dispatch(setSectionTitle({subreddit,subredditUrl}));
             dispatch(loadAllPreviews(subredditUrl));
+            dispatch(setBackButton());
           }
         
           if (loading) {
@@ -71,7 +75,7 @@ import { Tile } from "../../components/Tile";
         return (
             <>
             <section className='articles-container'>
-                <p className="back" onClick={handleBackClick}>...Back</p>
+                { onParent ? ""  : <p className="back" onClick={handleBackClick}>...Back</p>}
                 {/*  This is the section header. we only want it to appear once.*/ }
                 <h2 className='section-title'>{sectionTitle}</h2> 
                 {/*  This is the array of articles being passed from the logic component which is then being mapped and each instance sent to create an item on the page */ }
