@@ -1,8 +1,7 @@
 //Tile component
 
 //standard import of react 
-import React, { useEffect } from "react";
-import { UseEffect } from "react";
+import React from "react";
 import { setSectionTitle } from "../features/articlePreviews/articlePreviewsSlice";
 import { useDispatch} from "react-redux";
 import { loadAllPreviews } from "../features/articlePreviews/articlePreviewsSlice";
@@ -22,7 +21,7 @@ export const Tile = ({article}) => {
         console.log(subredditUrl);
         dispatch(setSectionTitle({subreddit,subredditUrl}));
         dispatch(loadAllPreviews(subredditUrl));
-        
+
     }
 
    
