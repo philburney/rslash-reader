@@ -4,14 +4,17 @@
 import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
 
+
 //This function loads the data from the API. 
 
 
 
 export const loadAllPreviews = createAsyncThunk(
     'articlePreviews/loadAllPreviews',
-    async () => {
-      const data = await fetch("https://www.reddit.com/r/popular.json");
+    async (url) => {
+    console.log("passed URL:" + url);
+   //     console.log(useUrl);
+      const data = await fetch(url);
       const json = await data.json();
       return json;
     }
@@ -37,9 +40,20 @@ export const articlePreviewsSlice = createSlice ({
     ],
     isloadingArticlePreviews: false,
     hasError:false,
-    sectionTitle:"Popular on Reddit"
+    sectionTitle:"Popular on Reddit",
+    sectionUrl:"https://www.reddit.com/r/popular.json"
     },
-        extraReducers: (builder) => {
+    reducers: {
+        setSectionTitle: (state, action) => {
+          const {subreddit,subredditUrl}  = action.payload;
+          console.log("title is:" + subreddit);
+          console.log("new URl:" + subredditUrl);
+          state.sectionTitle = subreddit;
+          state.sectionUrl=subredditUrl;
+          
+        }
+      },
+    extraReducers: (builder) => {
             builder
               .addCase(loadAllPreviews.pending, (state) => {
                 state.isLoadingArticlePreviews = true;
@@ -97,8 +111,11 @@ export const articlePreviewsSlice = createSlice ({
 export const selectAllPreviews = state => state.articlePreviews.articles;
 export const isLoading = state => state.articlePreviews.isLoadingArticlePreviews;
 export const selectTitle = state => state.articlePreviews.sectionTitle;
+export const URL = state => state.articlePreviews.sectionUrl;
 
 //This is the export of the reducer that needs to then be imported by the store.js Note the word reducer is singular!
 export default articlePreviewsSlice.reducer;
+
+export const {setSectionTitle} = articlePreviewsSlice.actions;
 
 

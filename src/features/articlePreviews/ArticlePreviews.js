@@ -15,7 +15,8 @@ import {
     loadAllPreviews,
     selectAllPreviews,
     isLoading,
-    selectTitle
+    selectTitle,
+    URL
 } from "./articlePreviewsSlice";
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
@@ -39,6 +40,8 @@ import { Tile } from "../../components/Tile";
          const articles = useSelector(selectAllPreviews);
          const loading = useSelector(isLoading);
          const sectionTitle=useSelector(selectTitle);
+         const currentUrl= useSelector(URL);
+         console.log(currentUrl);
           
 
          //This is a standard UseEffect function from react and will run anytime the dispatch is used.
@@ -46,7 +49,7 @@ import { Tile } from "../../components/Tile";
          
 
          useEffect(() => {
-            dispatch(loadAllPreviews());
+            dispatch(loadAllPreviews(currentUrl));
           }, [dispatch]);
         
           if (loading) {

@@ -1,7 +1,11 @@
 //Tile component
 
 //standard import of react 
-import React from "react";
+import React, { useEffect } from "react";
+import { UseEffect } from "react";
+import { setSectionTitle } from "../features/articlePreviews/articlePreviewsSlice";
+import { useDispatch} from "react-redux";
+import { loadAllPreviews } from "../features/articlePreviews/articlePreviewsSlice";
 
 
 //This tile is being used by the logic component so needs to be exported
@@ -10,9 +14,21 @@ import React from "react";
 export const Tile = ({article}) => {
     //Breaking the article parts into varibles to make it easier to see
     const {permalink,thumbnail, subreddit,title}= article;
+    const dispatch=useDispatch();
      
+    const handlesSubredditClick = (e) => {
+        e.preventDefault();
+        console.log(subreddit);
+        console.log(subredditUrl);
+        dispatch(setSectionTitle({subreddit,subredditUrl}));
+        dispatch(loadAllPreviews(subredditUrl));
+        
+    }
+
+   
+
     //This is creating the link to the subreddit URL. It is the only bit of logic in this presentation component.
-       const subredditUrl = "https://reddit.com/" + subreddit;
+       const subredditUrl = "https://www.reddit.com/" + subreddit + ".json";
 
 
     //This is the return from this component and contains JSX and vanilla html
@@ -28,9 +44,9 @@ export const Tile = ({article}) => {
                  <a href={permalink} target="_isblank">
                     <h3>{title}</h3>
                  </a>
-                 <a href={subredditUrl} target="_isblank">
-                    <p className="sub">{subreddit}</p>
-                </a>
+               
+                    <p className="sub" onClick={handlesSubredditClick}>{subreddit}</p>
+                
                 <a href={permalink} target="_isblank">
                     <img src={thumbnail} alt="" />
                 </a>
