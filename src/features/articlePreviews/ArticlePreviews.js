@@ -16,7 +16,8 @@ import {
     selectAllPreviews,
     isLoading,
     selectTitle,
-    URL
+    URL,
+    setSectionTitle
 } from "./articlePreviewsSlice";
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
@@ -44,13 +45,23 @@ import { Tile } from "../../components/Tile";
          console.log(currentUrl);
           
 
+         
+
          //This is a standard UseEffect function from react and will run anytime the dispatch is used.
          //In this case it runs the loadAllPreviews to the store.
          
 
          useEffect(() => {
             dispatch(loadAllPreviews(currentUrl));
-          }, [dispatch]);
+          }, [dispatch,currentUrl]);
+
+
+          const handleBackClick = (e) => {
+            const subredditUrl="https://www.reddit.com/r/popular.json";
+            const subreddit="Popular on Reddit";
+            dispatch(setSectionTitle({subreddit,subredditUrl}));
+            dispatch(loadAllPreviews(subredditUrl));
+          }
         
           if (loading) {
             return <div className="loading">Reaching out to Reddit...</div>;
@@ -60,6 +71,7 @@ import { Tile } from "../../components/Tile";
         return (
             <>
             <section className='articles-container'>
+                <p className="back" onClick={handleBackClick}>...Back</p>
                 {/*  This is the section header. we only want it to appear once.*/ }
                 <h2 className='section-title'>{sectionTitle}</h2> 
                 {/*  This is the array of articles being passed from the logic component which is then being mapped and each instance sent to create an item on the page */ }

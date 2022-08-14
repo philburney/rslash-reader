@@ -107,6 +107,10 @@ p.sub {
   margin-left: auto;
 }
 
+p.sub:hover {
+  cursor: pointer;
+}
+
 /*This makes the subreddit bold when hovered over to draw attention that it will go to the subbreddit not the article*/
 .sub:hover {
   font-weight: 900;
@@ -135,4 +139,17 @@ a:hover {
   padding-left: 2rem;
   font-size: medium;
   font-style: italic;
+}
+
+
+p.back {
+  color: red;
+  padding:0 2rem;
+  text-decoration: underline;
+
+
+}
+
+p.back:hover {
+  cursor: pointer;
 }

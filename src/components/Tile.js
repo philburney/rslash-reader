@@ -17,8 +17,8 @@ export const Tile = ({article}) => {
      
     const handlesSubredditClick = (e) => {
         e.preventDefault();
-        console.log(subreddit);
-        console.log(subredditUrl);
+        //console.log(subreddit);
+        //console.log(subredditUrl);
         dispatch(setSectionTitle({subreddit,subredditUrl}));
         dispatch(loadAllPreviews(subredditUrl));
 
