@@ -9,13 +9,13 @@ import { useEffect } from "react";
 //This is needed so you can access the select statements and cause the actions (reducers) to run
 import { useDispatch,useSelector } from "react-redux";
 
-//These are imports frmo the Slice. This includes the selects, reducers and general functions (including API calls).
+//These are imports from the Slice. This includes the selects, reducers and general functions (including API calls).
 //I have used destructuring to make it easier to see what is coming into this Component. 
 import { 
-    loadPreviews,
+    loadAllPreviews,
     selectAllPreviews,
-    isLoading, 
-    addTitles} from "./articlePreviewsSlice";
+    isLoading
+} from "./articlePreviewsSlice";
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
 
@@ -23,7 +23,7 @@ import { Tile } from "../../components/Tile";
 
 //This is calling the initialisation which is currently taking the dummy data and returning an array
 //The array contains objects. Each object represents one article with title, permalink, thumbnail and subreddit
-const articleArray=loadPreviews();
+
     
 //This is the declaration of the Component. Remember to start with a Capital letter. Each component has two parts.
 // 1. Optional logic. This is basically JavaScript and and can involve anything needed.
@@ -40,11 +40,16 @@ const articleArray=loadPreviews();
           
 
          //This is a standard UseEffect function from react and will run anytime the dispatch is used.
-         //In this case it runs the Add titles (which is actually adding articles) to the store.
-         // The addTitles is using the array of articles (articleArray) and putting them into the state.
+         //In this case it runs the loadAllPreviews to the store.
+         
 
-         useEffect(() => {dispatch(addTitles(articleArray))
-         },[dispatch])
+         useEffect(() => {
+            dispatch(loadAllPreviews());
+          }, [dispatch]);
+        
+          if (loading) {
+            return <div className="loading">Reaching out to Reddit...</div>;
+          }
         
         //This is the second part the return statement.
         return (
