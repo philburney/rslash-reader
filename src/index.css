@@ -119,8 +119,9 @@ p.sub:hover {
 /*This is  formatting the thumbnail */
 img {
   display: block;
-  margin: 0px auto;
+  margin: auto auto;
   padding: 0.5rem;
+ 
 }
 
 /*This removes the hyperlink underline */
@@ -153,3 +154,4 @@ p.back {
 p.back:hover {
   cursor: pointer;
 }
+

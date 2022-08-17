@@ -46,11 +46,11 @@ export const articlePreviewsSlice = createSlice ({
     },
     reducers: {
         setSectionTitle: (state, action) => {
-          const {subreddit,subredditUrl}  = action.payload;
-          console.log("title is:" + subreddit);
-          console.log("new URl:" + subredditUrl);
-          state.sectionTitle = subreddit;
-          state.sectionUrl=subredditUrl;
+          const {newTitle,newURL}  = action.payload;
+         // console.log("title is:" + subreddit);
+         // console.log("new URl:" + subredditUrl);
+          state.sectionTitle = newTitle;
+          state.sectionUrl=newURL;
           
         },
         setBackButton: (state) => {
@@ -85,7 +85,7 @@ export const articlePreviewsSlice = createSlice ({
                     
                     //This is checking that the picture is really a picture. If not it returns it to null
                     if (!incomingThumb.startsWith("https://"))
-                        {incomingThumb="";}
+                        {incomingThumb="reddit_icon.png";}
                     
                     //This is where I add the object to the array as part of the for loop
                     articleArray.push({

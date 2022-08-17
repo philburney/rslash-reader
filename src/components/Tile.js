@@ -19,7 +19,10 @@ export const Tile = ({article}) => {
         e.preventDefault();
         //console.log(subreddit);
         //console.log(subredditUrl);
-        dispatch(setSectionTitle({subreddit,subredditUrl}));
+        const newTitle=subreddit;
+        const newURL=subredditUrl;
+
+        dispatch(setSectionTitle({newTitle,newURL}));
         dispatch(loadAllPreviews(subredditUrl));
         dispatch(setBackButton());
 
@@ -48,7 +51,9 @@ export const Tile = ({article}) => {
                     <p className="sub" onClick={handlesSubredditClick}>{subreddit}</p>
                 
                 <a href={permalink} target="_isblank">
-                    <img src={thumbnail} alt="" />
+                 
+                     <img className="thumbnail" src={thumbnail}  alt="" />
+                    
                 </a>
            
         </li>
