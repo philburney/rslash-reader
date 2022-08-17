@@ -17,7 +17,7 @@ import {
     isLoading,
     selectTitle,
     URL,
-    setSectionTitle,
+    setSectionTitleAndURL,
     isRoot,
     setBackButton
 } from "./articlePreviewsSlice";
@@ -62,7 +62,7 @@ import { Tile } from "../../components/Tile";
           const handleBackClick = (e) => {
             const subredditUrl="https://www.reddit.com/r/popular.json";
             const subreddit="Popular on Reddit";
-            dispatch(setSectionTitle({subreddit,subredditUrl}));
+            dispatch(setSectionTitleAndURL({subreddit,subredditUrl}));
             dispatch(loadAllPreviews(subredditUrl));
             dispatch(setBackButton());
           }

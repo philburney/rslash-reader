@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { selectTitle,URL } from '../features/articlePreviews/articlePreviewsSlice';
 import { useSelector } from 'react-redux';
-import { setSectionTitle } from '../features/articlePreviews/articlePreviewsSlice';
+import { setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
 import { useDispatch} from "react-redux";
 
 
@@ -31,7 +31,7 @@ export const Search = () => {
         console.log(currentUrl);
         console.log(newTitle);
         console.log(newURL);
-        dispatch(setSectionTitle({newTitle,newURL}));
+        dispatch(setSectionTitleAndURL({newTitle,newURL}));
         
         
     }

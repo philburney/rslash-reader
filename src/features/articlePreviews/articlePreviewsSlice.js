@@ -45,7 +45,7 @@ export const articlePreviewsSlice = createSlice ({
     sectionUrl:"https://www.reddit.com/r/popular.json"
     },
     reducers: {
-        setSectionTitle: (state, action) => {
+        setSectionTitleAndURL: (state, action) => {
           const {newTitle,newURL}  = action.payload;
          // console.log("title is:" + subreddit);
          // console.log("new URl:" + subredditUrl);
@@ -121,6 +121,6 @@ export const isRoot = state => state.articlePreviews.isRoot;
 //This is the export of the reducer that needs to then be imported by the store.js Note the word reducer is singular!
 export default articlePreviewsSlice.reducer;
 
-export const {setSectionTitle, setBackButton} = articlePreviewsSlice.actions;
+export const {setSectionTitleAndURL, setBackButton} = articlePreviewsSlice.actions;
 
 

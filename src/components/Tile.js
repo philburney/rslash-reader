@@ -2,7 +2,7 @@
 
 //standard import of react 
 import React from "react";
-import { setSectionTitle,setBackButton } from "../features/articlePreviews/articlePreviewsSlice";
+import { setSectionTitleAndURL,setBackButton } from "../features/articlePreviews/articlePreviewsSlice";
 import { useDispatch} from "react-redux";
 import { loadAllPreviews } from "../features/articlePreviews/articlePreviewsSlice";
 
@@ -22,7 +22,7 @@ export const Tile = ({article}) => {
         const newTitle=subreddit;
         const newURL=subredditUrl;
 
-        dispatch(setSectionTitle({newTitle,newURL}));
+        dispatch(setSectionTitleAndURL({newTitle,newURL}));
         dispatch(loadAllPreviews(subredditUrl));
         dispatch(setBackButton());
 
