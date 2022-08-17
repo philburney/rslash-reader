@@ -14,8 +14,8 @@ export const Search = () => {
     const [searchTerm,setSearchTerm] = useState("");
  
 
-    const currentTitle = useSelector(selectTitle);
-    const currentUrl = useSelector(URL);
+    let currentTitle = useSelector(selectTitle);
+    let currentUrl = useSelector(URL);
   
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
@@ -24,10 +24,24 @@ export const Search = () => {
    
     const handleSubmitSearch = (e) => {
         e.preventDefault();
-        const newTitle = `Seaching for ${searchTerm} in ${currentTitle}` ;
+        //checking if search has already been done and if so reset the title and base URL
+        if (currentTitle.substring(0,6) ==="Search") {
+            
+            //reset the title
+            let findStem = currentTitle.indexOf(" in ");
+            console.log(findStem);
+            currentTitle=currentTitle.substring(findStem+4);
+            console.log(currentTitle);
 
-        
-        let newURL = currentUrl.substring(0,currentUrl.length-5) + `/search.json?q=${searchTerm}`;
+           //reset the URL 
+           findStem = currentUrl.indexOf("search.json");
+           currentUrl=currentUrl.substring(0,findStem-1)  + ".json";
+           console.log(currentUrl);
+
+        }
+
+        const newTitle = `Searching for ${searchTerm}`
+        let newURL = currentUrl.substring(0,currentUrl.length-5) + `/search.json?q=${searchTerm}&restrict_sr=1`;
         
         console.log(searchTerm);
         
