@@ -19,7 +19,11 @@ export const Article = () => {
     dispatch(addArticle({title,imageURL,permalink,author, subreddit}));
     return (
         <>
-        <h1> My Article</h1>
+        <h2 className="articletitle"> {title}</h2>
+        <h3 className="articlesub">{subreddit} </h3>
+        <img src={imageURL} alt="" className="articleimage"  ></img>
+        <h4 className="articleauthor" >{author}</h4>
+
         </>
     );
 

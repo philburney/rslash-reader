@@ -10,7 +10,7 @@ export const fakeLoad = () => {
     const imageURL = data[0].data.children[0].data.url;
     const permalink=data[0].data.children[0].data.permalink;
     const author=data[0].data.children[0].data.author;
-    const subreddit =data[0].data.children[0].data.subreddit;
+    const subreddit ="r/" + data[0].data.children[0].data.subreddit;
     return {title,imageURL, permalink,author, subreddit};
 }
 
