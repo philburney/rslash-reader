@@ -19,7 +19,9 @@ import {
     URL,
     setSectionTitleAndURL,
     isRoot,
-    setBackButton
+    setBackButton,
+    selectInSearch,
+    setInSearch
 } from "./articlePreviewsSlice";
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
@@ -45,6 +47,7 @@ import { Tile } from "../../components/Tile";
          const sectionTitle=useSelector(selectTitle);
          const currentUrl= useSelector(URL);
          const onParent= useSelector(isRoot);
+         const inSearch=useSelector(selectInSearch);
 
           
 
@@ -60,11 +63,12 @@ import { Tile } from "../../components/Tile";
 
 
           const handleBackClick = (e) => {
-            const subredditUrl="https://www.reddit.com/r/popular.json";
-            const subreddit="Popular on Reddit";
-            dispatch(setSectionTitleAndURL({subreddit,subredditUrl}));
-            dispatch(loadAllPreviews(subredditUrl));
-            dispatch(setBackButton());
+            const newURL="https://www.reddit.com/r/popular.json";
+            const newTitle="Popular on Reddit";
+            dispatch(setSectionTitleAndURL({newTitle,newURL}));
+            dispatch(loadAllPreviews(newURL));
+            dispatch(setBackButton(false));
+            dispatch(setInSearch(false));
           }
         
           if (loading) {
@@ -75,9 +79,10 @@ import { Tile } from "../../components/Tile";
         return (
             <>
             <section className='articles-container'>
-                { onParent ? ""  : <p className="back" onClick={handleBackClick}>...Back</p>}
+                { inSearch ?  <p className="back" onClick={handleBackClick}>...Back</p> :""}
                 {/*  This is the section header. we only want it to appear once.*/ }
                 <h2 className='section-title'>{sectionTitle}</h2> 
+                <button className="clearbutton" onClick={handleBackClick} hidden={!inSearch}>X</button>
                 {/*  This is the array of articles being passed from the logic component which is then being mapped and each instance sent to create an item on the page */ }
                     <ul>
                        {/*The Tile Component is being called for each individual article and passed to the presentation component (called Tile) to be displayed. The Tile needs an unique key (in this case the index) and the article object which has all the information it needs. This is being passed as prop. */}

@@ -42,7 +42,8 @@ export const articlePreviewsSlice = createSlice ({
     hasError:false,
     isRoot:true,
     sectionTitle:"Popular on Reddit",
-    sectionUrl:"https://www.reddit.com/r/popular.json"
+    sectionUrl:"https://www.reddit.com/r/popular.json",
+    inSearch:false
     },
     reducers: {
         setSectionTitleAndURL: (state, action) => {
@@ -53,8 +54,11 @@ export const articlePreviewsSlice = createSlice ({
           state.sectionUrl=newURL;
           
         },
-        setBackButton: (state) => {
-            state.isRoot=!state.isRoot;
+        setBackButton: (state,action) => {
+            state.isRoot=action.payload;
+        },
+        setInSearch: (state,action) => {
+            state.inSearch=action.payload;
         }
       },
     extraReducers: (builder) => {
@@ -117,10 +121,11 @@ export const isLoading = state => state.articlePreviews.isLoadingArticlePreviews
 export const selectTitle = state => state.articlePreviews.sectionTitle;
 export const URL = state => state.articlePreviews.sectionUrl;
 export const isRoot = state => state.articlePreviews.isRoot;
+export const selectInSearch = state => state.articlePreviews.inSearch;
 
 //This is the export of the reducer that needs to then be imported by the store.js Note the word reducer is singular!
 export default articlePreviewsSlice.reducer;
 
-export const {setSectionTitleAndURL, setBackButton} = articlePreviewsSlice.actions;
+export const {setSectionTitleAndURL, setBackButton, setInSearch} = articlePreviewsSlice.actions;
 
 

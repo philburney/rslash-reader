@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { selectTitle,URL } from '../features/articlePreviews/articlePreviewsSlice';
+import { selectTitle,URL, setInSearch, setBackButton } from '../features/articlePreviews/articlePreviewsSlice';
 import { useSelector } from 'react-redux';
 import { setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
 import { useDispatch} from "react-redux";
+
 
 
 
@@ -51,7 +52,8 @@ export const Search = () => {
         console.log(newURL);
         dispatch(setSectionTitleAndURL({newTitle,newURL}));
         setSearchTerm("");
-        
+        dispatch(setInSearch(true));
+        dispatch(setBackButton(true));
         
     }
     

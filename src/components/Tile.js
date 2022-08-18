@@ -24,7 +24,7 @@ export const Tile = ({article}) => {
 
         dispatch(setSectionTitleAndURL({newTitle,newURL}));
         dispatch(loadAllPreviews(subredditUrl));
-        dispatch(setBackButton());
+        dispatch(setBackButton(true));
 
     }
 
