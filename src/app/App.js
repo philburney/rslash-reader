@@ -8,6 +8,7 @@ function App() {
      //make it match the name in index.html. Components and vanilla html being used. If component then it must have been imported at top of this file
      <div className="app">
        <Search />
+        <br></br>
         <h1>Rslash Reader</h1>
         <img src="./reddit_icon.png" alt="reddit logo" width="60px" />
         <ArticlePreviews />

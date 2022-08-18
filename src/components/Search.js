@@ -59,9 +59,9 @@ export const Search = () => {
     
 
     return (
-        <form className="search">
+        <form className="innersearch">
             <input type="text" className="searchbox" placeholder="Search" value={searchTerm} onChange={handleSearchChange}/>
-            <button onClick={handleSubmitSearch}  disabled={!searchTerm} >Search</button>
+            <button onClick={handleSubmitSearch}  disabled={!searchTerm} className="searchbutton" >Search</button>
            
        </form>
     )
