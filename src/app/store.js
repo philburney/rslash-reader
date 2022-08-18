@@ -6,11 +6,12 @@ import { configureStore } from '@reduxjs/toolkit';
 //This will import all the reducers for that slice. 
 //It will be named "nameofSlice" + Reducer and imported from  the Slice 
 import articlePreviewsReducer from '../features/articlePreviews/articlePreviewsSlice';
+import articleReducer from '../features/articles/articleSlice';
 
 //This is where the store is configured. Add any reducers to the object
 export const store = configureStore({
   reducer: {
     articlePreviews:articlePreviewsReducer, //This store only has one reducer but others can be added
-    
+    articles:articleReducer
   },
 });
