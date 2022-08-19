@@ -36,6 +36,7 @@ export const articlePreviewsSlice = createSlice ({
         //     title:"",
         //     permalink:"",
         //     thumbnail:"",
+        //     id:""
         // }
     ],
     isloadingArticlePreviews: false,
@@ -76,6 +77,7 @@ export const articlePreviewsSlice = createSlice ({
                 let incomingTitle ="";
                 let incomingLink="";
                 let incomingSub ="";
+                let incomingid="";
                  //This is picking out the data and creating an array of objects. Each object will have a title, thumbnail, permalink to the article and the subbreddit
                 //The JSON return all the Articles 
                 const numberOfTiles =dataReturned.data.children.length ;
@@ -86,7 +88,7 @@ export const articlePreviewsSlice = createSlice ({
                     incomingLink =  "https://reddit.com" + dataReturned.data.children[i].data.permalink;
                     incomingThumb = dataReturned.data.children[i].data.thumbnail;
                     incomingSub= "r/" + dataReturned.data.children[i].data.subreddit;  
-                    
+                    incomingid=dataReturned.data.children[i].data.id;
                     //This is checking that the picture is really a picture. If not it returns it to null
                     if (!incomingThumb.startsWith("https://"))
                         {incomingThumb="reddit_icon.png";}
@@ -96,7 +98,8 @@ export const articlePreviewsSlice = createSlice ({
                         title: incomingTitle,
                         thumbnail: incomingThumb,
                         permalink: incomingLink,
-                        subreddit: incomingSub
+                        subreddit: incomingSub,
+                        id: incomingid,
                     });
                     state.articles=articleArray;
      };
