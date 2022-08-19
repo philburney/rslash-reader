@@ -6,24 +6,19 @@
 //Needed for useEffect. Might also have useState if needed
 import { useEffect } from "react";
 import { Comment } from "../../components/Comment";
-import { loadArticle, checkLoading,selectTitle,selectArticle } from "./articleSlice";
+import { loadArticle, checkLoading, selectArticle } from "./articleSlice";
 
 //This is needed so you can access the select statements and cause the actions (reducers) to run
 import { useDispatch,useSelector } from "react-redux";
 
-//import { selectArticle, addArticle, fakeLoad } from "./articleSlice";
+
 
 export const Article = () => {
      const dispatch = useDispatch();
     
      const loading= useSelector(checkLoading);
      const {title,subreddit,comments,author,imageURL}=useSelector(selectArticle);
-    //const {title,imageURL,permalink,author, subreddit,comments} = fakeLoad();
-    //console.log(title,imageURL,permalink,author, subreddit);
-    //console.log(comments);
-    //comments.pop();
-    //dispatch(addArticle({title,imageURL,permalink,author, subreddit,comments}));
-    //console.log(article.title);
+   
     let URL ="https://www.reddit.com/r/CasualUK/comments/ws8w3y/borrowed_wifes_car_this_morning_and_found_this.json";
  
     
@@ -31,11 +26,11 @@ export const Article = () => {
         dispatch(loadArticle(URL));
       }, [URL,dispatch]);
 
+    if (loading) {
+        return <div className="loading">Reaching out to Reddit...</div>;
+      }
    
    
-     console.log(title);
-    // console.log(URL);
-   //  console.log(article);
     return (
        
          <>

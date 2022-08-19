@@ -213,6 +213,7 @@ h2.section-title {
   text-align: center;
   font-size: 3rem;
   color: black;
+  padding-left: 0;
 
 }
 
@@ -235,9 +236,9 @@ p.comment {
  
  
     position: relative;
-    max-width: 30em;
+    max-width: 80%;
     
-   
+    text-align: center;
     background-color: #fff;
     padding: 1.125em 1.5em;
     font-size: 1.25em;
@@ -261,4 +262,6 @@ p.comment {
     filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
   }
   
- 
+ .articleauthor {
+   margin-left: 2rem;
+ }
