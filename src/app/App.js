@@ -17,7 +17,7 @@ function App() {
             <Route>
            <h1>Rslash Reader</h1>
            </Route>
-           <Route path="/article">
+           <Route path="/article/:id/sub/:articleSub/title/:articleTitle">
             <Article />
            </Route>
            <Route path="/summary">

@@ -6,10 +6,11 @@
 //Needed for useEffect. Might also have useState if needed
 import { useEffect } from "react";
 import { Comment } from "../../components/Comment";
-import { loadArticle, checkLoading, selectArticle } from "./articleSlice";
+import { loadArticle, checkLoading,selectArticle } from "./articleSlice";
 
 //This is needed so you can access the select statements and cause the actions (reducers) to run
 import { useDispatch,useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 
 
@@ -17,14 +18,17 @@ export const Article = () => {
      const dispatch = useDispatch();
     
      const loading= useSelector(checkLoading);
-     const {title,subreddit,comments,author,imageURL}=useSelector(selectArticle);
+     const {title,subreddit,comments,author,imageURL,permalink}=useSelector(selectArticle);
    
     let URL ="https://www.reddit.com/r/CasualUK/comments/ws8w3y/borrowed_wifes_car_this_morning_and_found_this.json";
- 
+    const {articleSub,id, articleTitle} = useParams();
+   
+    let dynamicURL = `https://www.reddit.com/r/${articleSub}/comments/${id}/${articleTitle}.json`
+    console.log(dynamicURL);
     
     useEffect(() => {
-        dispatch(loadArticle(URL));
-      }, [URL,dispatch]);
+        dispatch(loadArticle(dynamicURL));
+      }, [dynamicURL,dispatch]);
 
     if (loading) {
         return <div className="loading">Reaching out to Reddit...</div>;
@@ -34,10 +38,10 @@ export const Article = () => {
     return (
        
          <>
-       
+            <p>{id}</p>
             <h2 className="articletitle"> {title}</h2>
             <h3 className="articlesub">{subreddit} </h3>
-            <img src={imageURL} alt="" className="articleimage"  ></img>
+            <img src={imageURL} alt="" className="articleimage"></img>
             <h4 className="articleauthor" >{author}</h4>
             <hr></hr>
             <ul className="commentList">
