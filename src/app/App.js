@@ -20,7 +20,7 @@ function App() {
            <Route path="/article/:id/sub/:articleSub/title/:articleTitle">
             <Article />
            </Route>
-           <Route path="/summary">
+           <Route exact path="/">
              <Search />
              <br></br>
              <img src="./reddit_icon.png" alt="reddit logo" width="60px" />

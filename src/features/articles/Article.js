@@ -38,7 +38,7 @@ export const Article = () => {
     return (
        
          <>
-            <p>{id}</p>
+          
             <h2 className="articletitle"> {title}</h2>
             <h3 className="articlesub">{subreddit} </h3>
             <img src={imageURL} alt="" className="articleimage"></img>
