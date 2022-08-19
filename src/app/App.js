@@ -3,18 +3,30 @@ import React from 'react'; //import React
 import ArticlePreviews from "../features/articlePreviews/ArticlePreviews" //You will need to import and Components (likely to be logic components from the features folder)
 import { Search } from '../components/Search';
 import {Article} from '../features/articles/Article';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
  
 // The main app
 function App() {
    return (
+     
+      
      //make it match the name in index.html. Components and vanilla html being used. If component then it must have been imported at top of this file
      <div className="app">
-      <Article />
-       {/* <Search />
-        <br></br>
-        <h1>Rslash Reader</h1>
-        <img src="./reddit_icon.png" alt="reddit logo" width="60px" />
-        <ArticlePreviews /> */}
+      <Router >
+         
+            <Route>
+           <h1>Rslash Reader</h1>
+           </Route>
+           <Route path="/article">
+            <Article />
+           </Route>
+           <Route path="/summary">
+             <Search />
+             <br></br>
+             <img src="./reddit_icon.png" alt="reddit logo" width="60px" />
+             <ArticlePreviews /> 
+           </Route>
+        </Router>
      </div>
     
   );
