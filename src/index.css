@@ -18,7 +18,8 @@ h1 {
   font-size: 4rem;
   margin-top: 1rem;
   margin-bottom: 0;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
+  text-shadow: 0.1rem 0.1rem grey;
 
 }
 
@@ -264,4 +265,20 @@ p.comment {
   
  .articleauthor {
    margin-left: 2rem;
+ }
+
+
+ .homebutton {
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  margin: 0.2rem;
+  border: 0.1rem grey solid;
+   margin-left: 3.5rem;
+  
+ }
+
+ .homeicon {
+    width: 100%;
+    padding: 0;
  }

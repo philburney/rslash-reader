@@ -3,10 +3,14 @@ import React from 'react'; //import React
 import ArticlePreviews from "../features/articlePreviews/ArticlePreviews" //You will need to import and Components (likely to be logic components from the features folder)
 import { Search } from '../components/Search';
 import {Article} from '../features/articles/Article';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router,  Route } from 'react-router-dom';
+import { Nav } from '../components/Nav';
  
 // The main app
 function App() {
+   
+ 
+
    return (
      
       
@@ -15,15 +19,17 @@ function App() {
       <Router >
          
             <Route>
+            <Nav />
            <h1>Rslash Reader</h1>
            </Route>
            <Route path="/article/:id/sub/:articleSub/title/:articleTitle">
             <Article />
            </Route>
            <Route exact path="/">
+             <img src="./reddit_icon.png" alt="reddit logo" width="60px" />
              <Search />
              <br></br>
-             <img src="./reddit_icon.png" alt="reddit logo" width="60px" />
+            
              <ArticlePreviews /> 
            </Route>
         </Router>
