@@ -41,7 +41,7 @@ export const articlePreviewsSlice = createSlice ({
     ],
     isloadingArticlePreviews: false,
     hasError:false,
-    isRoot:true,
+    isSubreddit:false,
     sectionTitle:"Popular on Reddit",
     sectionUrl:"https://www.reddit.com/r/popular.json",
     inSearch:false
@@ -60,6 +60,10 @@ export const articlePreviewsSlice = createSlice ({
         },
         setInSearch: (state,action) => {
             state.inSearch=action.payload;
+        },
+        
+        setInSubreddit: (state,action) => {
+            state.isSubreddit =action.payload;
         }
       },
     extraReducers: (builder) => {
@@ -123,12 +127,12 @@ export const selectAllPreviews = state => state.articlePreviews.articles;
 export const isLoading = state => state.articlePreviews.isLoadingArticlePreviews;
 export const selectTitle = state => state.articlePreviews.sectionTitle;
 export const URL = state => state.articlePreviews.sectionUrl;
-export const isRoot = state => state.articlePreviews.isRoot;
+export const isSubreddit = state => state.articlePreviews.isSubreddit;
 export const selectInSearch = state => state.articlePreviews.inSearch;
 
 //This is the export of the reducer that needs to then be imported by the store.js Note the word reducer is singular!
 export default articlePreviewsSlice.reducer;
 
-export const {setSectionTitleAndURL, setBackButton, setInSearch} = articlePreviewsSlice.actions;
+export const {setSectionTitleAndURL, setBackButton, setInSearch, setInSubreddit} = articlePreviewsSlice.actions;
 
 

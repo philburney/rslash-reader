@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { selectTitle,URL, setInSearch, setBackButton } from '../features/articlePreviews/articlePreviewsSlice';
+import { selectTitle,URL, setInSearch, setBackButton,setInSubreddit } from '../features/articlePreviews/articlePreviewsSlice';
 import { useSelector } from 'react-redux';
 import { setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
 import { useDispatch} from "react-redux";
@@ -17,6 +17,7 @@ export const Search = () => {
 
     let currentTitle = useSelector(selectTitle);
     let currentUrl = useSelector(URL);
+
   
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
@@ -54,6 +55,7 @@ export const Search = () => {
         setSearchTerm("");
         dispatch(setInSearch(true));
         dispatch(setBackButton(true));
+        dispatch(setInSubreddit(true));
         
     }
     

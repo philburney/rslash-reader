@@ -7,6 +7,7 @@
 import { useEffect } from "react";
 import { Comment } from "../../components/Comment";
 import { loadArticle, checkLoading,selectArticle } from "./articleSlice";
+import { setInSubreddit } from "../articlePreviews/articlePreviewsSlice";
 
 //This is needed so you can access the select statements and cause the actions (reducers) to run
 import { useDispatch,useSelector } from "react-redux";
@@ -34,7 +35,7 @@ export const Article = () => {
         return <div className="loading">Reaching out to Reddit...</div>;
       }
    
-   
+    
     return (
        
          <>

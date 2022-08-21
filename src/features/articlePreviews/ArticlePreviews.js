@@ -18,10 +18,11 @@ import {
     selectTitle,
     URL,
     setSectionTitleAndURL,
-    isRoot,
+    isSubreddit,
     setBackButton,
     selectInSearch,
-    setInSearch
+    setInSearch,
+    setInSubreddit
 } from "./articlePreviewsSlice";
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
@@ -46,7 +47,7 @@ import { Tile } from "../../components/Tile";
          const loading = useSelector(isLoading);
          const sectionTitle=useSelector(selectTitle);
          const currentUrl= useSelector(URL);
-         const onParent= useSelector(isRoot);
+       
          const inSearch=useSelector(selectInSearch);
 
           
@@ -69,6 +70,7 @@ import { Tile } from "../../components/Tile";
             dispatch(loadAllPreviews(newURL));
             dispatch(setBackButton(false));
             dispatch(setInSearch(false));
+            dispatch(setInSubreddit(false));
           }
         
           if (loading) {
@@ -79,7 +81,7 @@ import { Tile } from "../../components/Tile";
         return (
             <>
             <section className='articles-container'>
-                { inSearch ?  <p className="back" onClick={handleBackClick}>...Back</p> :""}
+              
                 {/*  This is the section header. we only want it to appear once.*/ }
                 <h2 className='section-title'>{sectionTitle}</h2> 
                 <button className="clearbutton" onClick={handleBackClick} hidden={!inSearch}>X</button>
