@@ -3,6 +3,8 @@
 import React from 'react';
 
 import {useSelector} from "react-redux";
+import ReactMarkdown from 'react-markdown';
+
 
 
 
@@ -11,7 +13,9 @@ export const Comment = ({body,author}) => {
     <>
         <li className="comment">
             <p className='author'>{author}</p> 
-            <p className='comment'>{body}</p>
+            <p className='comment'>
+            <ReactMarkdown children={body} />
+            </p>
             
         </li>    
     </>
