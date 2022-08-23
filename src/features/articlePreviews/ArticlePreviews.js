@@ -84,7 +84,7 @@ import { Tile } from "../../components/Tile";
               
                 {/*  This is the section header. we only want it to appear once.*/ }
                 <h2 className='section-title'>{sectionTitle}</h2> 
-                <button className="clearbutton" onClick={handleBackClick} hidden={!inSearch}>X</button>
+                <button className="clearbutton" onClick={handleBackClick} hidden={!inSearch}><img className="clearicon" src="./clear.png" alt="clear search"></img></button>
                 {/*  This is the array of articles being passed from the logic component which is then being mapped and each instance sent to create an item on the page */ }
                     <ul>
                        {/*The Tile Component is being called for each individual article and passed to the presentation component (called Tile) to be displayed. The Tile needs an unique key (in this case the index) and the article object which has all the information it needs. This is being passed as prop. */}

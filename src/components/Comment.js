@@ -13,9 +13,9 @@ export const Comment = ({body,author}) => {
     <>
         <li className="comment">
             <p className='author'>{author}</p> 
-            <p className='comment'>
+            <div className='comment'>
             <ReactMarkdown children={body} />
-            </p>
+            </div>
             
         </li>    
     </>
