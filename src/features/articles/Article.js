@@ -7,8 +7,6 @@
 import { useEffect } from "react";
 import { Comment } from "../../components/Comment";
 import { loadArticle, checkLoading,selectArticle,setActive } from "./articleSlice";
-import { setInSubreddit } from "../articlePreviews/articlePreviewsSlice";
-
 //This is needed so you can access the select statements and cause the actions (reducers) to run
 import { useDispatch,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -19,13 +17,13 @@ export const Article = () => {
      const dispatch = useDispatch();
     
      const loading= useSelector(checkLoading);
-     const {title,subreddit,comments,author,imageURL,permalink}=useSelector(selectArticle);
+     const {title,subreddit,comments,author,imageURL}=useSelector(selectArticle);
       dispatch(setActive(true));
-    let URL ="https://www.reddit.com/r/CasualUK/comments/ws8w3y/borrowed_wifes_car_this_morning_and_found_this.json";
+    
     const {articleSub,id, articleTitle} = useParams();
    
     let dynamicURL = `https://www.reddit.com/r/${articleSub}/comments/${id}/${articleTitle}.json`
-    console.log(dynamicURL);
+
     
     useEffect(() => {
         dispatch(loadArticle(dynamicURL));

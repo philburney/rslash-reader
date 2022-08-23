@@ -45,7 +45,6 @@ export const articleSlice = createSlice({
             state.hasError = false;
              //This is some initialisation
              const data = action.payload;
-             console.log("passed URL:");
              const comments=[];
              state.title = data[0].data.children[0].data.title;
              state.imageURL = data[0].data.children[0].data.url;

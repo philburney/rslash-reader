@@ -18,11 +18,9 @@ import {
     selectTitle,
     URL,
     setSectionTitleAndURL,
-    isSubreddit,
-    setBackButton,
     selectInSearch,
     setInSearch,
-    setInSubreddit
+
 } from "./articlePreviewsSlice";
 
 import { useParams } from "react-router-dom";
@@ -54,10 +52,7 @@ import { Tile } from "../../components/Tile";
          let {sub} = useParams();
         
          let newURL=currentUrl;
-          if (sectionTitle.substring(0,14) === "Searching for ") {
-          const secondSearchCheck = true;
-          alert(secondSearchCheck);
-          };
+          
 
          if (!inSearch) {
                let newURL=`https://www.reddit.com/r/${sub}.json`;
@@ -81,9 +76,9 @@ import { Tile } from "../../components/Tile";
             let newTitle = `${sub} on reddit`;
             dispatch(setSectionTitleAndURL({newTitle,newURL}));
             dispatch(loadAllPreviews(newURL));
-            dispatch(setBackButton(false));
+         
             dispatch(setInSearch(false));
-            dispatch(setInSubreddit(false));
+          
           }
         
           if (loading) {
