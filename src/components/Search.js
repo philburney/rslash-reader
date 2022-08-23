@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { selectTitle,URL, setInSearch, setBackButton,setInSubreddit } from '../features/articlePreviews/articlePreviewsSlice';
+import { selectTitle,URL, setInSearch } from '../features/articlePreviews/articlePreviewsSlice';
 import { useSelector } from 'react-redux';
 import { setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
 import { useDispatch} from "react-redux";
@@ -45,18 +45,12 @@ export const Search = () => {
         const newTitle = `Searching for ${searchTerm}`
         let newURL = currentUrl.substring(0,currentUrl.length-5) + `/search.json?q=${searchTerm}&restrict_sr=1`;
         
-        console.log(searchTerm);
-        
-        console.log(currentTitle);
-        console.log(currentUrl);
-        console.log(newTitle);
-        console.log(newURL);
+     
         dispatch(setSectionTitleAndURL({newTitle,newURL}));
-        alert("hello");
+
         setSearchTerm("");
         dispatch(setInSearch(true));
-        dispatch(setBackButton(true));
-        dispatch(setInSubreddit(true));
+   
         
     }
     

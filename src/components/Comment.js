@@ -1,8 +1,6 @@
 //component to display the comments
 
 import React from 'react';
-
-import {useSelector} from "react-redux";
 import ReactMarkdown from 'react-markdown';
 
 

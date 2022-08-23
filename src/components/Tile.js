@@ -2,11 +2,11 @@
 
 //standard import of react 
 import React from "react";
-import { setSectionTitleAndURL,setBackButton, setInSubreddit, setInSearch } from "../features/articlePreviews/articlePreviewsSlice";
-import { useDispatch, useSelector} from "react-redux";
-import { loadAllPreviews } from "../features/articlePreviews/articlePreviewsSlice";
+
+import { useDispatch} from "react-redux";
+
 import { Link} from "react-router-dom";
-import { Redirect } from "react-router-dom";
+
 
 
 //This tile is being used by the logic component so needs to be exported
@@ -16,7 +16,7 @@ export const Tile = ({article}) => {
     //Breaking the article parts into varibles to make it easier to see
     const {permalink,thumbnail, subreddit,title, id}= article;
    
-    const dispatch=useDispatch();
+ 
     const findTitleStart = permalink.indexOf(id,0);
     const fixTitle = permalink.substring(findTitleStart+id.length+1);
     console.log("fixTitle:"+fixTitle);
@@ -24,26 +24,11 @@ export const Tile = ({article}) => {
     const path="/article/" + id +"/sub/" + fixSub +"/title/" + fixTitle;
     const subPath = "/sub/" + fixSub;
      
-    const handlesSubredditClick = (e) => {
-        e.preventDefault();
-       
-        
-        //console.log(subreddit);
-        //console.log(subredditUrl);
-        // const newTitle=subreddit;
-        // const newURL=subredditUrl;
 
-        // dispatch(setSectionTitleAndURL({newTitle,newURL}));
-        // dispatch(loadAllPreviews(subredditUrl));
-        // dispatch(setBackButton(true));
-        // dispatch(setInSubreddit(true));
-
-    }
 
    
 
-    //This is creating the link to the subreddit URL. It is the only bit of logic in this presentation component.
-       const subredditUrl = "https://www.reddit.com/" + subreddit + ".json";
+   
 
 
     //This is the return from this component and contains JSX and vanilla html
