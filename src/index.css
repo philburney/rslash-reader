@@ -184,6 +184,7 @@ p.back:hover {
 h2.section-title {
   display: inline;
   margin-right: 1.2rem;
+  text-transform: capitalize;
 }
 
 .innersearch {
@@ -222,6 +223,7 @@ h2.section-title {
   color: red;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
+  text-transform: capitalize;
 
 
 }

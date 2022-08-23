@@ -52,6 +52,7 @@ export const Search = () => {
         console.log(newTitle);
         console.log(newURL);
         dispatch(setSectionTitleAndURL({newTitle,newURL}));
+        alert("hello");
         setSearchTerm("");
         dispatch(setInSearch(true));
         dispatch(setBackButton(true));

@@ -25,6 +25,8 @@ import {
     setInSubreddit
 } from "./articlePreviewsSlice";
 
+import { useParams } from "react-router-dom";
+
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
 
 import { Tile } from "../../components/Tile";
@@ -49,8 +51,19 @@ import { Tile } from "../../components/Tile";
          const currentUrl= useSelector(URL);
        
          const inSearch=useSelector(selectInSearch);
+         let {sub} = useParams();
+        
+         let newURL=currentUrl;
+          if (sectionTitle.substring(0,14) === "Searching for ") {
+          const secondSearchCheck = true;
+          alert(secondSearchCheck);
+          };
 
-          
+         if (!inSearch) {
+               let newURL=`https://www.reddit.com/r/${sub}.json`;
+               let newTitle = `${sub} on reddit`;
+               dispatch(setSectionTitleAndURL({newTitle,newURL}));
+         } 
 
          
 
@@ -59,13 +72,13 @@ import { Tile } from "../../components/Tile";
          
 
          useEffect(() => {
-            dispatch(loadAllPreviews(currentUrl));
-          }, [dispatch,currentUrl]);
+            dispatch(loadAllPreviews(newURL));
+          }, [dispatch,newURL]);
 
 
           const handleBackClick = (e) => {
-            const newURL="https://www.reddit.com/r/popular.json";
-            const newTitle="Popular on Reddit";
+            let newURL=`https://www.reddit.com/r/${sub}.json`;
+            let newTitle = `${sub} on reddit`;
             dispatch(setSectionTitleAndURL({newTitle,newURL}));
             dispatch(loadAllPreviews(newURL));
             dispatch(setBackButton(false));

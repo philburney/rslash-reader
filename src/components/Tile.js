@@ -2,10 +2,12 @@
 
 //standard import of react 
 import React from "react";
-import { setSectionTitleAndURL,setBackButton, setInSubreddit } from "../features/articlePreviews/articlePreviewsSlice";
-import { useDispatch} from "react-redux";
+import { setSectionTitleAndURL,setBackButton, setInSubreddit, setInSearch, selectInSearch } from "../features/articlePreviews/articlePreviewsSlice";
+import { useDispatch, useSelector} from "react-redux";
 import { loadAllPreviews } from "../features/articlePreviews/articlePreviewsSlice";
-import { Link} from "react-router-dom";
+import { Link, useHistory, withRouter} from "react-router-dom";
+import { Redirect } from "react-router-dom";
+
 
 
 //This tile is being used by the logic component so needs to be exported
@@ -14,24 +16,34 @@ import { Link} from "react-router-dom";
 export const Tile = ({article}) => {
     //Breaking the article parts into varibles to make it easier to see
     const {permalink,thumbnail, subreddit,title, id}= article;
+   
     const dispatch=useDispatch();
     const findTitleStart = permalink.indexOf(id,0);
     const fixTitle = permalink.substring(findTitleStart+id.length+1);
     console.log("fixTitle:"+fixTitle);
     const fixSub= subreddit.substring(2);
     const path="/article/" + id +"/sub/" + fixSub +"/title/" + fixTitle;
+    const subPath = "/sub/" + fixSub;
+    const history = useHistory();
      
     const handlesSubredditClick = (e) => {
         e.preventDefault();
+        alert("subredclick");
+        dispatch(selectInSearch(false));
+        history.push('./');
+    
+
+       
+        
         //console.log(subreddit);
         //console.log(subredditUrl);
-        const newTitle=subreddit;
-        const newURL=subredditUrl;
+        // const newTitle=subreddit;
+        // const newURL=subredditUrl;
 
-        dispatch(setSectionTitleAndURL({newTitle,newURL}));
-        dispatch(loadAllPreviews(subredditUrl));
-        dispatch(setBackButton(true));
-        dispatch(setInSubreddit(true));
+        // dispatch(setSectionTitleAndURL({newTitle,newURL}));
+        // dispatch(loadAllPreviews(subredditUrl));
+        // dispatch(setBackButton(true));
+        // dispatch(setInSubreddit(true));
 
     }
 
@@ -55,9 +67,10 @@ export const Tile = ({article}) => {
                  <Link to={path}>
                     <h3>{title}</h3>
                  </Link>
-               
-                    <p className="sub" onClick={handlesSubredditClick}>{subreddit}</p>
-                
+                     {/* <Link to={subPath}>
+                       <p className="sub" >{subreddit}</p>
+                    </Link> */}
+                     <p className="sub" onClick={handlesSubredditClick} >{subreddit}</p>
                 <Link to={path}>
                  
                      <img className="thumbnail" src={thumbnail}  alt="" />
