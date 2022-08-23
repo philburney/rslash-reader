@@ -23,7 +23,14 @@ export const articleSlice = createSlice({
         author:"",
         subreddit:"",
         isLoading:false,
-        hasError:false
+        hasError:false,
+        active: false,
+    },
+    reducers: {
+  
+      setActive: (state,action) => {
+          state.active=action.payload;
+      },
     },
    
     extraReducers: (builder) => {
@@ -76,8 +83,9 @@ export const articleSlice = createSlice({
 export const selectComments = state => state.comments;
 export const checkLoading = state => state.articles.isLoading;
 export const selectArticle= state => state.articles;
+export const selectActive = state => state.articles.active;
 
 
 export default articleSlice.reducer;
 
-export const {addArticle}=articleSlice.actions; 
+export const {addArticle, setActive}=articleSlice.actions; 

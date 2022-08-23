@@ -2,12 +2,11 @@
 
 //standard import of react 
 import React from "react";
-import { setSectionTitleAndURL,setBackButton, setInSubreddit, setInSearch, selectInSearch } from "../features/articlePreviews/articlePreviewsSlice";
+import { setSectionTitleAndURL,setBackButton, setInSubreddit, setInSearch } from "../features/articlePreviews/articlePreviewsSlice";
 import { useDispatch, useSelector} from "react-redux";
 import { loadAllPreviews } from "../features/articlePreviews/articlePreviewsSlice";
-import { Link, useHistory, withRouter} from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Redirect } from "react-router-dom";
-
 
 
 //This tile is being used by the logic component so needs to be exported
@@ -24,15 +23,9 @@ export const Tile = ({article}) => {
     const fixSub= subreddit.substring(2);
     const path="/article/" + id +"/sub/" + fixSub +"/title/" + fixTitle;
     const subPath = "/sub/" + fixSub;
-    const history = useHistory();
      
     const handlesSubredditClick = (e) => {
         e.preventDefault();
-        alert("subredclick");
-        dispatch(selectInSearch(false));
-        history.push('./');
-    
-
        
         
         //console.log(subreddit);
@@ -67,10 +60,9 @@ export const Tile = ({article}) => {
                  <Link to={path}>
                     <h3>{title}</h3>
                  </Link>
-                     {/* <Link to={subPath}>
+                     <Link to={subPath}>
                        <p className="sub" >{subreddit}</p>
-                    </Link> */}
-                     <p className="sub" onClick={handlesSubredditClick} >{subreddit}</p>
+                    </Link>
                 <Link to={path}>
                  
                      <img className="thumbnail" src={thumbnail}  alt="" />
