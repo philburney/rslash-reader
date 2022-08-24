@@ -24,6 +24,12 @@ export const Search = () => {
     };
     
    
+    const onKeyUp = (event) => {
+        if (event.charCode === 13) {
+          handleSubmitSearch(event);
+        }
+    }
+
     const handleSubmitSearch = (e) => {
         e.preventDefault();
         //checking if search has already been done and if so reset the title and base URL
@@ -57,7 +63,7 @@ export const Search = () => {
 
     return (
         <form className="innersearch">
-            <input type="text" className="searchbox" placeholder="Search" value={searchTerm} onChange={handleSearchChange}/>
+            <input type="text" onKeyPress={onKeyUp} className="searchbox" placeholder="Search" value={searchTerm} onChange={handleSearchChange}/>
             <Button  variant="primary" onClick={handleSubmitSearch}  disabled={!searchTerm} className="searchbutton" >Search</Button>
            
        </form>
