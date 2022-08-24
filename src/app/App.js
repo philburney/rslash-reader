@@ -5,6 +5,7 @@ import { Search } from '../components/Search';
 import {Article} from '../features/articles/Article';
 import { BrowserRouter as Router,  Redirect,  Route } from 'react-router-dom';
 import { Nav } from '../components/Nav';
+import 'bootstrap/dist/css/bootstrap.min.css';
  
 // The main app
 function App() {
@@ -27,7 +28,7 @@ function App() {
             <Article />
            </Route>
            <Route path="/sub/:sub">
-           <img src="./reddit_icon.png" alt="reddit logo" width="60px" />
+           <img src="./redditblue.png" alt="reddit logo" width="60px" />
              <Search />
              <br></br>
             

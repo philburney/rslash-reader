@@ -10,8 +10,9 @@ import { loadArticle, checkLoading,selectArticle,setActive } from "./articleSlic
 //This is needed so you can access the select statements and cause the actions (reducers) to run
 import { useDispatch,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
-
+import Spinner from 'react-bootstrap/Spinner';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export const Article = () => {
      const dispatch = useDispatch();
@@ -29,20 +30,28 @@ export const Article = () => {
         dispatch(loadArticle(dynamicURL));
       }, [dynamicURL,dispatch]);
 
-    if (loading) {
-        return <div className="loading">Reaching out to Reddit...</div>;
+      if (loading) {
+
+        return (
+        <div className="loading">
+          <p>Reaching out to Reddit...</p>
+          <Spinner animation="border" role="status">
+          </Spinner>
+          </div>);
       }
    
     
     return (
        
          <>
-          
-            <h2 className="articletitle"> {title}</h2>
-            <h3 className="articlesub">{subreddit} </h3>
+            <div className="article">
+            <Card>
+            <Card.Title><h2 className="articletitle"> {title}</h2></Card.Title>
+            <Card.Subtitle><h3 className="articlesub">{subreddit} </h3></Card.Subtitle>
             <img src={imageURL} alt="" className="articleimage"></img>
             <h4 className="articleauthor" >{author}</h4>
             <hr></hr>
+            <ListGroup>
             <ul className="commentList">
                        {/*The comment Component is being called for each individual article and passed to the presentation component (called Tile) to be displayed. The Tile needs an unique key (in this case the index) and the article object which has all the information it needs. This is being passed as prop. */}
                             {comments.map((comment, index) =>
@@ -50,6 +59,9 @@ export const Article = () => {
                               <Comment body={comment.body} author={comment.author} key={index} />
                            )}
             </ul>
+            </ListGroup>
+            </Card>
+            </div>
         </>
        
         

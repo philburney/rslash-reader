@@ -11,26 +11,29 @@ body {
 
 /* Formatting for the main title "Rslash Reader */
 h1 {
-  color: red;
+  color: #0d6efd;
   text-transform: uppercase;
+  font-family: "DynaPuff", cursive;
   font-weight: 700;
   text-align: center;
   font-size: 4rem;
   margin-top: 1rem;
   margin-bottom: 0;
   padding-top: 0.5rem;
-  text-shadow: 0.1rem 0.1rem grey;
+  text-shadow: 0.1rem 0.1rem black;
 
 }
 
 /* Formatting for the page title "Popular Subreddits" */
 
 h2 {
-  color: red;
+  color: #0d6efd;
+  font-family: "DynaPuff", cursive;
   padding-left: 4rem;
   font-size: 3rem;
   margin-top: 0;
   margin-bottom: 1rem;
+  text-shadow: 0.1rem 0.1rem black;
 }
 
 
@@ -54,40 +57,44 @@ ul {
 }
 
 /* This is formatting the tiles. It puts a border and shaddow around them and colours them*/
+.card-body {
+  border-color: #0d6efd;
+}
+
 
 .tilearea {
-  width:23%;
+  width:23.5%;
   margin: 0.3rem;
-  background-color: antiquewhite;
   overflow: auto;
-  border: 3px lightcoral solid;
+  background-color: #0d6efd;
   border-radius: 7px;
-  box-shadow: 2px 3px grey;
+  box-shadow: 1px 1px black; 
   }
 
 
   /* This is so that the tile changes colour slightly when the user is on it to highlight which they are clicking on */
   .tilearea:hover {
    
-    background-color: wheat;
+    /* background-color: wheat; */
   }
 
 
 .tile {
 
-  margin: auto;
+  /* margin: auto; */
  
 
 }
 
 /* This is formatting the tile title */
 h3 {
+  color: white;
   text-align: center;
   padding: 0.5rem 0.6rem 0;
-  color: gray;
+  font-size: 1.8rem;
   text-transform: capitalize;
   font: arial;
-  margin: 0;
+  margin: 0; 
 }
 
 /*This formats the subreddit*/
@@ -96,13 +103,13 @@ h3 {
   margin-top: 0;
   margin-bottom: 0;
   text-align: right;
-  padding-right: 2rem;
+  padding-right: 1rem;
   padding-bottom: 0rem;
-  color: red;
+  color: lightgray;
   text-decoration: underline;
   width: fit-content;
   text-align: right;
- 
+  
 }
 
 p.sub {
@@ -136,26 +143,29 @@ a:hover {
   cursor: pointer;
 }
 
+.card {
+  --bs-card-border-width: 0px;
+}
 
 .loading {
-  color: red;
-  padding-left: 2rem;
+  color:#0d6efd ;
+  padding-left: 2.5rem;
   font-size: medium;
   font-style: italic;
 }
 
 
-p.back {
+/* p.back {
   color: red;
   padding:0 2rem;
   text-decoration: underline;
 
 
-}
+} */
 
-p.back:hover {
+/* p.back:hover {
   cursor: pointer;
-}
+} */
 
 .search {
   width: 100%;
@@ -166,13 +176,14 @@ p.back:hover {
 .searchbox {
   font-size: 1.2rem;
   margin-right: 0.2rem;
+  padding-top: 0.2rem;
 
 }
 
 
 
 .searchbutton {
-  height: 1.75rem;
+
 
   vertical-align: top;
 }
@@ -202,7 +213,7 @@ h2.section-title {
   padding-right: 0.5rem;
   font-size: 0.75rem;
   padding-left: 0.4rem;
-  background-color: red;
+  background-color:#0d6efd;
   border-style: none;
   border-radius:50%;
 }
@@ -217,11 +228,15 @@ h2.section-title {
   background-color: black;
   color:red;
 }
+.article {
+  
+  width: 95%;
+}
 
 .articletitle {
   text-align: center;
   font-size: 3rem;
-  color: red;
+  color:#0d6efd;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
   text-transform: capitalize;
@@ -233,7 +248,7 @@ h2.section-title {
   text-align: right;
   text-transform: lowercase;
   margin-right: 3rem;
-  color:red;
+  color:#0d6efd;
 }
 
 .articleimage {
@@ -248,8 +263,8 @@ div.comment {
  
  
     position: relative;
-    max-width: 90%;
-    
+    max-width: 100%;
+    margin-bottom: 1rem;
     text-align: center;
     background-color: #fff;
     padding: 1.125em 1.5em;
@@ -282,21 +297,22 @@ div.comment {
   .homebutton {
   width: 2rem;
   height: 2rem;
-  background-color: red;
-  margin: 0.2rem;
-  border: 0.1rem grey solid;
+  /* background-color: red; */
+  /* margin: 0.2rem; */
+  /* border: 0.1rem grey solid; */
+  padding: 0.1rem;
    margin-left: 2.5rem;
  }
 
  .backbutton {
   width: 2rem;
   height: 2rem;
-  background-color: red;
+  /* background-color: red; */
 
-  border: 0.1rem grey solid;
-
+  /* border: 0.1rem grey solid; */
+  margin-top: 0.2rem;
   margin-bottom:0;
-  padding-bottom: 0;
+  padding: 0.2rem;
   vertical-align: top;
   margin-left: 2.5rem;
  }
@@ -307,7 +323,7 @@ div.comment {
  }
 
  .backicon{
-  width: 100%;
+  width: 80%;
   height: 80%;
   padding: 0;
  }

@@ -6,9 +6,11 @@ import ReactMarkdown from 'react-markdown';
 
 
 
+
 export const Comment = ({body,author}) => {
     return(
     <>
+        
         <li className="comment">
             <p className='author'>{author}</p> 
             <div className='comment'>

@@ -24,10 +24,13 @@ import {
 } from "./articlePreviewsSlice";
 
 import { useParams } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
 
 //This is an import from the presentation component called Tile. I am sending the data to the tiles from this file so need to import it
 
 import { Tile } from "../../components/Tile";
+
+import CardGroup from 'react-bootstrap/CardGroup';
 
 //This is calling the initialisation which is currently taking the dummy data and returning an array
 //The array contains objects. Each object represents one article with title, permalink, thumbnail and subreddit
@@ -82,7 +85,13 @@ import { Tile } from "../../components/Tile";
           }
         
           if (loading) {
-            return <div className="loading">Reaching out to Reddit...</div>;
+
+            return (
+            <div className="loading">
+              <p>Reaching out to Reddit...</p>
+              <Spinner animation="border" role="status">
+              </Spinner>
+              </div>);
           }
         
         //This is the second part the return statement.
@@ -95,11 +104,13 @@ import { Tile } from "../../components/Tile";
                 <button className="clearbutton" onClick={handleBackClick} hidden={!inSearch}><img className="clearicon" src="./clear.png" alt="clear search"></img></button>
                 {/*  This is the array of articles being passed from the logic component which is then being mapped and each instance sent to create an item on the page */ }
                     <ul>
+                      <CardGroup>
                        {/*The Tile Component is being called for each individual article and passed to the presentation component (called Tile) to be displayed. The Tile needs an unique key (in this case the index) and the article object which has all the information it needs. This is being passed as prop. */}
                             {articles.map((article, index) =>
                               
                               <Tile article={article} key={index} />
                             )}
+                      </CardGroup>
                     </ul>
             </section>
             </>)

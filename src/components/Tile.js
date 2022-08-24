@@ -5,6 +5,7 @@ import React from "react";
 
 import { Link} from "react-router-dom";
 
+import Card from 'react-bootstrap/Card'
 
 
 //This tile is being used by the logic component so needs to be exported
@@ -40,18 +41,25 @@ export const Tile = ({article}) => {
  
     <div name="tile" className="tilearea">
         <li className="tile">
+            <Card bg="primary">
+                <Card.Title>
                  <Link to={path}>
                     <h3>{title}</h3>
                  </Link>
+                 </Card.Title>
+                 <Card.Subtitle>
                      <Link to={subPath}>
                        <p className="sub" >{subreddit}</p>
                     </Link>
+                 </Card.Subtitle>
+                 <Card.Body>
                 <Link to={path}>
                  
-                     <img className="thumbnail" src={thumbnail}  alt="" />
+                     <img variant="bottom" className="thumbnail" src={thumbnail}  alt="" />
                     
                 </Link>
-           
+                </Card.Body>
+           </Card>
         </li>
     </div>
    

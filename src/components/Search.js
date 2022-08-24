@@ -4,7 +4,7 @@ import { selectTitle,URL, setInSearch } from '../features/articlePreviews/articl
 import { useSelector } from 'react-redux';
 import { setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
 import { useDispatch} from "react-redux";
-
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -58,7 +58,7 @@ export const Search = () => {
     return (
         <form className="innersearch">
             <input type="text" className="searchbox" placeholder="Search" value={searchTerm} onChange={handleSearchChange}/>
-            <button onClick={handleSubmitSearch}  disabled={!searchTerm} className="searchbutton" >Search</button>
+            <Button  variant="primary" onClick={handleSubmitSearch}  disabled={!searchTerm} className="searchbutton" >Search</Button>
            
        </form>
     )

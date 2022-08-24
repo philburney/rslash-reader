@@ -3,6 +3,7 @@ import {  useHistory} from 'react-router-dom';
 import { setInSearch } from '../features/articlePreviews/articlePreviewsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { setActive, selectActive } from '../features/articles/articleSlice';
+import Button from 'react-bootstrap/Button';
 
 
 export const Nav =  () => {
@@ -44,8 +45,8 @@ export const Nav =  () => {
 
  return (
     <nav> 
-    <button className="homebutton" onClick={handleClick}><img src='./home.png' alt="home button" className="homeicon"></img></button>
-    <button className="backbutton" onClick={handleBackClick}><img src='./back.png' alt="back button" className="backicon"></img></button>
+    <Button variant="primary" className="homebutton" onClick={handleClick}><img src='./home.png' alt="home button" className="homeicon"></img></Button>{' '}
+    <Button variant="primary" className="backbutton" onClick={handleBackClick}><img src='./back.png' alt="back button" className="backicon"></img></Button>{' '}
     </nav>
  )
 }

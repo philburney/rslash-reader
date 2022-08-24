@@ -85,7 +85,7 @@ export const articlePreviewsSlice = createSlice ({
                     incomingid=dataReturned.data.children[i].data.id;
                     //This is checking that the picture is really a picture. If not it returns it to null
                     if (!incomingThumb.startsWith("https://"))
-                        {incomingThumb="reddit_icon.png";}
+                        {incomingThumb="redditblue.png";}
                     
                     //This is where I add the object to the array as part of the for loop
                     articleArray.push({
