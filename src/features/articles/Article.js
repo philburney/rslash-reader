@@ -40,7 +40,8 @@ export const Article = () => {
           </div>);
       }
    
-    
+      const isVideo = (imageURL.indexOf(".mp4")!==-1);
+      console.log(isVideo);
     return (
        
          <>
@@ -48,7 +49,10 @@ export const Article = () => {
             <Card>
             <Card.Title><h2 className="articletitle"> {title}</h2></Card.Title>
             <Card.Subtitle><h3 className="articlesub">{subreddit} </h3></Card.Subtitle>
+            { isVideo ? <><video  controls="true" preload="auto">
+              <source src={imageURL} type="video/mp4" /></video></>:
             <img src={imageURL} alt="" className="articleimage"></img>
+            }
             <h4 className="articleauthor" >{author}</h4>
             <hr></hr>
             <ListGroup>

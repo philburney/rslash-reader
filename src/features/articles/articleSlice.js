@@ -47,11 +47,25 @@ export const articleSlice = createSlice({
              const data = action.payload;
              const comments=[];
              state.title = data[0].data.children[0].data.title;
-             state.imageURL = data[0].data.children[0].data.url;
+            
              state.permalink=data[0].data.children[0].data.permalink;
              state.author=data[0].data.children[0].data.author;
              state.subreddit ="r/" + data[0].data.children[0].data.subreddit;
              
+             const mediaLink = data[0].data.children[0].data.url;
+
+             console.log(mediaLink.indexOf(".jpg"));
+             console.log(mediaLink.indexOf(".png"));
+             console.log(mediaLink.indexOf(".gif"));
+             if(data[0].data.children[0].data.media !==null)
+              {
+              console.log(data[0].data.children[0].data.media.reddit_video.scrubber_media_url);
+              state.imageURL=data[0].data.children[0].data.media.reddit_video.fallback_url;
+             }
+              else {
+                state.imageURL=mediaLink;
+              };
+
               for (let comment of data[1].data.children) {
                     comments.push(
                         {
@@ -62,6 +76,7 @@ export const articleSlice = createSlice({
                     
                     
                 };
+              
             comments.pop();
             state.comments = comments;
              

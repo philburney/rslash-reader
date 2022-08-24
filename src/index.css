@@ -63,7 +63,7 @@ ul {
 
 
 .tilearea {
-  width:23.5%;
+  width:45%;
   margin: 0.3rem;
   overflow: auto;
   background-color: #0d6efd;
@@ -332,4 +332,10 @@ div.comment {
     position: fixed;
     width: 2rem;
     display: block
+  }
+
+  video {
+    width:30%;
+    margin:auto;
+
   }

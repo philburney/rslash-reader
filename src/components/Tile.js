@@ -22,7 +22,7 @@ export const Tile = ({article}) => {
     const fixSub= subreddit.substring(2);
     const path="/article/" + id +"/sub/" + fixSub +"/title/" + fixTitle;
     const subPath = "/sub/" + fixSub;
-     
+    
 
 
    

@@ -1,6 +1,6 @@
 import React from 'react';
 import {  useHistory} from 'react-router-dom';
-import { setInSearch } from '../features/articlePreviews/articlePreviewsSlice';
+import { setInSearch, setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { setActive, selectActive } from '../features/articles/articleSlice';
 import Button from 'react-bootstrap/Button';
@@ -19,6 +19,7 @@ export const Nav =  () => {
       
       dispatch(setInSearch(false));
       dispatch(setActive(false));
+      dispatch(setSectionTitleAndURL("",""))
       history.push("/sub/popular");
     }
 
