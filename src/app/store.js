@@ -11,7 +11,7 @@ import articleReducer from '../features/articles/articleSlice';
 //This is where the store is configured. Add any reducers to the object
 export const store = configureStore({
   reducer: {
-    articlePreviews:articlePreviewsReducer, //This store only has one reducer but others can be added
+    articlePreviews:articlePreviewsReducer, //This store only has two reducers 
     articles:articleReducer
   },
 });

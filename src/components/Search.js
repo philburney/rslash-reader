@@ -1,35 +1,45 @@
+//This component is responsible for the Seach bar
+
+//Import react
 import React from 'react';
+
+//Import useState which holds the Search term using the standard React hook
 import { useState } from 'react';
-import { selectTitle,URL, setInSearch } from '../features/articlePreviews/articlePreviewsSlice';
-import { useSelector } from 'react-redux';
-import { setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
-import { useDispatch} from "react-redux";
+
+//Used to set  and read the title and URL from the seach and to indicate a search is in progress
+import { selectTitle,URL, setInSearch,  setSectionTitleAndURL } from '../features/articlePreviews/articlePreviewsSlice';
+
+//Allowing Selectors and reducers to be used on the store
+import { useSelector, useDispatch } from 'react-redux';
+
+//Bootstrap button import
 import Button from 'react-bootstrap/Button';
 
 
 
 export const Search = () => {
-
     const dispatch = useDispatch();
 
+    //Set up hook for the search term
     const [searchTerm,setSearchTerm] = useState("");
  
-
+    //Recore the current title and URL
     let currentTitle = useSelector(selectTitle);
     let currentUrl = useSelector(URL);
 
-  
+   //This keeps the store up to date with the input from the user
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
     };
-    
-   
+
+    //This checks if the user presses enter. If so it triggers the search.
     const onKeyUp = (event) => {
         if (event.charCode === 13) {
           handleSubmitSearch(event);
         }
     }
 
+    //This triggers the search
     const handleSubmitSearch = (e) => {
         e.preventDefault();
         //checking if search has already been done and if so reset the title and base URL
@@ -53,7 +63,6 @@ export const Search = () => {
         
      
         dispatch(setSectionTitleAndURL({newTitle,newURL}));
-
         setSearchTerm("");
         dispatch(setInSearch(true));
    

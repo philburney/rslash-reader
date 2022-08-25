@@ -6,14 +6,9 @@ import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
 
 //This function loads the data from the API. 
-
-
-
 export const loadAllPreviews = createAsyncThunk(
     'articlePreviews/loadAllPreviews',
     async (url) => {
-    console.log("passed URL:" + url);
-   //     console.log(useUrl);
       const data = await fetch(url);
       const json = await data.json();
       return json;
@@ -46,12 +41,14 @@ export const articlePreviewsSlice = createSlice ({
     inSearch:false
     },
     reducers: {
+        //Allows the title and URL to be saved
         setSectionTitleAndURL: (state, action) => {
           const {newTitle,newURL}  = action.payload;
           state.sectionTitle = newTitle;
           state.sectionUrl=newURL;
           
         },   
+        //Allows the setInSearch to be set to true or false
         setInSearch: (state,action) => {
             state.inSearch=action.payload;
         },  

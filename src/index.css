@@ -1,3 +1,5 @@
+
+/* Styling the main body */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,6 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color:white;
+  background-image: url("bluebackground.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 
@@ -24,7 +30,7 @@ h1 {
 
 }
 
-/* Formatting for the page title "Popular Subreddits" */
+/* Formatting for the Article Previews title  */
 
 h2 {
   color: #0d6efd;
@@ -34,6 +40,9 @@ h2 {
   margin-top: 0;
   margin-bottom: 1rem;
   text-shadow: 0.1rem 0.1rem black;
+  display: block;
+  width:100%;
+  padding-top: 3rem;
 }
 
 
@@ -48,43 +57,38 @@ ul {
   width: 90%;
   list-style-type: none;
   padding: 0 0;
-  margin:0 7%;
+  margin:auto;
   align-content: stretch;
   align-items: stretch;
-  justify-content: flex-start;
+  justify-content: center;
                                                                   
 
 }
 
 /* This is formatting the tiles. It puts a border and shaddow around them and colours them*/
-.card-body {
-  border-color: #0d6efd;
-}
 
 
-.tilearea {
+
+.tilearea  {
   width:45%;
-  margin: 0.3rem;
+  margin: 0.5rem;
   overflow: auto;
-  background-color: #0d6efd;
+  background-color: rgba(13, 110, 253,0.3);
   border-radius: 7px;
-  box-shadow: 1px 1px black; 
+  box-shadow: 1px 1px black;  
   }
 
+  
 
-  /* This is so that the tile changes colour slightly when the user is on it to highlight which they are clicking on */
-  .tilearea:hover {
-   
-    /* background-color: wheat; */
-  }
-
-
-.tile {
-
-  /* margin: auto; */
- 
+h2.section-title {
+  display: inline;
+  margin-right: 1.2rem;
+  text-transform: capitalize;
+  margin-left: 1.5rem;
+  width:100%;
 
 }
+
 
 /* This is formatting the tile title */
 h3 {
@@ -95,6 +99,7 @@ h3 {
   text-transform: capitalize;
   font: arial;
   margin: 0; 
+
 }
 
 /*This formats the subreddit*/
@@ -126,11 +131,23 @@ p.sub:hover {
 }
 
 /*This is  formatting the thumbnail */
-img {
+img.thumbnail {
   display: block;
   margin: auto auto;
-  padding: 0.5rem;
- 
+  width: fit-content;
+  border-radius: 7px;
+  margin-bottom: 2rem;
+  margin-top:1rem;
+
+}
+
+.logo {
+  display: block;
+  margin: auto auto;
+}
+
+.img {
+  width: fit-content;
 }
 
 /*This removes the hyperlink underline */
@@ -143,10 +160,12 @@ a:hover {
   cursor: pointer;
 }
 
+/* This removes the thin separator that comes from Bootstrap */
 .card {
   --bs-card-border-width: 0px;
 }
 
+/* This formats the loading text */
 .loading {
   color:#0d6efd ;
   padding-left: 2.5rem;
@@ -155,55 +174,40 @@ a:hover {
 }
 
 
-/* p.back {
-  color: red;
-  padding:0 2rem;
-  text-decoration: underline;
 
-
-} */
-
-/* p.back:hover {
-  cursor: pointer;
-} */
+/* Formatting the search */
 
 .search {
   width: 100%;
+  display: block;
+
 }
 
-
-
+::placeholder {
+  color:white;
+  opacity: 1;
+}
 .searchbox {
   font-size: 1.2rem;
   margin-right: 0.2rem;
   padding-top: 0.2rem;
+  background-color: rgba(13, 110, 253,0.6);
+  color:white;
 
 }
 
-
-
 .searchbutton {
-
-
   vertical-align: top;
 }
 
-
-
-
-
-h2.section-title {
-  display: inline;
-  margin-right: 1.2rem;
-  text-transform: capitalize;
-  margin-left: 1.5rem;
-}
 
 .innersearch {
   margin-top: 1.5rem;
   float:right;
   margin-right: 4rem;
 }
+
+/* Formatting the clear button when search is on */
 
 .clearbutton {
   vertical-align: top;
@@ -228,9 +232,21 @@ h2.section-title {
   background-color: black;
   color:red;
 }
+
+
+/* This formats the articles */
+
+.articles-container {
+  padding-top: 2rem;
+}
 .article {
-  
   width: 95%;
+  margin:auto;
+  background-color: rgba(236, 233, 233, 0.3);
+  border-radius: 7px;
+  border: 2px 2px grey solid;
+  box-shadow: 1px 1px black;  
+  padding-bottom: 3rem;
 }
 
 .articletitle {
@@ -240,9 +256,7 @@ h2.section-title {
   padding-left: 3.5rem;
   padding-right: 3.5rem;
   text-transform: capitalize;
-
-
-}
+ }
 
 .articlesub {
   text-align: right;
@@ -253,20 +267,35 @@ h2.section-title {
 
 .articleimage {
   max-width: 60%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+
 }
+  
+video {
+   
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+
+}
+
+
+/* Commment formats */
 
 ul.commentList {
   display:list-item;
 }
 
 div.comment {
- 
- 
     position: relative;
     max-width: 100%;
     margin-bottom: 1rem;
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(0,255,255,0.4);
     padding: 1.125em 1.5em;
     font-size: 1.25em;
     border-radius: 1rem;
@@ -274,7 +303,6 @@ div.comment {
   }
   
   div.comment::before {
- 
     content: '';
     position: absolute;
     width: 0;
@@ -283,9 +311,7 @@ div.comment {
     left: 1.5em; 
     border: .75rem solid transparent;
     border-top: none;
-  
-
-    border-bottom-color: #fff;
+    border-bottom-color:  rgba(0,255,255,0.4);
     filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
   }
   
@@ -294,38 +320,35 @@ div.comment {
  }
 
 
+
+ /* Formatting for Nav */
   .homebutton {
-  width: 2rem;
-  height: 2rem;
-  /* background-color: red; */
-  /* margin: 0.2rem; */
-  /* border: 0.1rem grey solid; */
-  padding: 0.1rem;
-   margin-left: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+
+    padding: 0.1rem;
+    margin-left: 2.5rem;
  }
 
  .backbutton {
-  width: 2rem;
-  height: 2rem;
-  /* background-color: red; */
-
-  /* border: 0.1rem grey solid; */
-  margin-top: 0.2rem;
-  margin-bottom:0;
-  padding: 0.2rem;
-  vertical-align: top;
-  margin-left: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.2rem;
+    margin-bottom:0;
+    padding: 0.2rem;
+    vertical-align: top;
+    margin-left: 2.5rem;
  }
  
  .homeicon{
-    width: 100%;
-    padding: 0;
+  width:100%;
+
  }
 
  .backicon{
-  width: 80%;
-  height: 80%;
-  padding: 0;
+    width: 80%;
+    height: 80%;
+    padding: 0;
  }
 
   nav {
@@ -334,8 +357,4 @@ div.comment {
     display: block
   }
 
-  video {
-    width:30%;
-    margin:auto;
 
-  }
