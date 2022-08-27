@@ -43,7 +43,7 @@ export const Article = () => {
         const subPath = "/sub/" + fixSub;
         history.push(subPath);  //create the path and push
         dispatch(setActive(false)); //set the article being active to off
-        window.location.reload(true); //refresh the previews 
+        window.location.reload(false); //refresh the previews 
 
       }
 
