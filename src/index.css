@@ -263,7 +263,6 @@ a:hover {
   text-transform: lowercase;
   margin-right: 3rem;
   color:#0d6efd;
-  margin-bottom: 1rem ;
 }
 
 .articleimage {
@@ -271,7 +270,6 @@ a:hover {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 7px;
 
 
 }
