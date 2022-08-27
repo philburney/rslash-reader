@@ -263,6 +263,11 @@ a:hover {
   text-transform: lowercase;
   margin-right: 3rem;
   color:#0d6efd;
+  text-decoration: underline;
+}
+
+.articlesub:hover {
+  cursor: pointer;
 }
 
 .articleimage {

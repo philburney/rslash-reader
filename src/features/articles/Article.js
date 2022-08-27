@@ -14,7 +14,7 @@ import { useDispatch,useSelector } from "react-redux";
 
 
 //Allows the url parameters to be grabbed
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 //Import Bootstrap components to help with design.
 import Spinner from 'react-bootstrap/Spinner';
@@ -22,7 +22,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export const Article = () => {
      const dispatch = useDispatch();
-    
+     const history= useHistory();
      const loading= useSelector(checkLoading);
      const {title,subreddit,comments,author,imageURL}=useSelector(selectArticle);
       dispatch(setActive(true));
@@ -35,6 +35,17 @@ export const Article = () => {
     useEffect(() => {
         dispatch(loadArticle(dynamicURL));
       }, [dynamicURL,dispatch]);
+
+
+      //handle the subclick being selected from the article
+      const handleSubClick = (e) => {
+        const fixSub= subreddit.substring(2);
+        const subPath = "/sub/" + fixSub;
+        history.push(subPath);  //create the path and push
+        dispatch(setActive(false)); //set the article being active to off
+        window.location.reload(false); //refresh the previews 
+
+      }
 
 
      //Display whilst API pending.
@@ -56,7 +67,7 @@ export const Article = () => {
             <div className="article">
               
                 <h2 className="articletitle"> {title}</h2>
-               <h3 className="articlesub">{subreddit} </h3>
+               <h3 onClick={handleSubClick} className="articlesub">{subreddit} </h3>
                 { isVideo ? <><video  controls="true" preload="auto">
                   <source src={imageURL} type="video/mp4" /></video></>:
                   <img src={imageURL} alt="" className="articleimage"></img>

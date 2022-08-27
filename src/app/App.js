@@ -27,11 +27,8 @@ function App() {
       {/* If React Router is being used (this version) then the code needs to sit in Router Elements */}
       <Router >
            {/* This is the first "route" and is always displayed. Consists of the Nav bar and app title and redirects to the default page = Popular on Reddit */}
-            <Route>
-              <Nav />
-              <h1>Rslash Reader</h1>
-               <Redirect to="/sub/popular" />
-            </Route>
+            <Nav />
+            <h1>Rslash Reader</h1>
 
            {/* The next route uses the path and is used for locating the article. It needs 3 parts to locate the URL on reddit. The id, the title and the subreddit */}
            <Route path="/article/:id/sub/:articleSub/title/:articleTitle">
@@ -46,6 +43,11 @@ function App() {
               <br></br>
               <ArticlePreviews /> 
             </Route>
+            <Route exact path="/">
+          
+              
+               <Redirect to="/sub/popular" />
+            </Route> 
 
         </Router>
      </div>

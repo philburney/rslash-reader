@@ -4,8 +4,7 @@
 import React from "react";
 
 //Used by react route to prevent renders when not needed
-import { Link} from "react-router-dom";
-
+import { Link, useHistory} from "react-router-dom";
 
 
 
@@ -23,9 +22,17 @@ export const Tile = ({article}) => {
     const fixSub= subreddit.substring(2);
     const path="/article/" + id +"/sub/" + fixSub +"/title/" + fixTitle;
     const subPath = "/sub/" + fixSub;
+    const history= useHistory();
     
 
+    const clickSub = (e) =>
+    { 
+         e.preventDefault();
+         history.push(subPath);
+         window.location.reload(false);
+     
 
+    }
    
 
    
@@ -48,9 +55,9 @@ export const Tile = ({article}) => {
                  </Link>
               
                 
-                     <Link to={subPath}>
-                       <p className="sub" >{subreddit}</p>
-                    </Link>
+                    
+                       <p onClick={clickSub} className="sub" >{subreddit}</p>
+                    
              
                
                      <Link to={path}>

@@ -20,8 +20,10 @@ import {
     setSectionTitleAndURL,
     selectInSearch,
     setInSearch,
+    
 
 } from "./articlePreviewsSlice";
+
 
 
 //This allows me to grab the path parameter.
@@ -58,6 +60,7 @@ import Spinner from 'react-bootstrap/Spinner';
          const sectionTitle=useSelector(selectTitle);
          const currentUrl= useSelector(URL);
          const inSearch=useSelector(selectInSearch);
+         
 
          //This grabs the subbreddit being used
          let {sub} = useParams();
@@ -70,7 +73,7 @@ import Spinner from 'react-bootstrap/Spinner';
                let newTitle = `${sub} on reddit`;
                dispatch(setSectionTitleAndURL({newTitle,newURL}));
          } 
-
+         
          
 
          //This is a standard UseEffect function from react and will run anytime the dispatch is used.
@@ -79,7 +82,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
          useEffect(() => {
             dispatch(loadAllPreviews(newURL));
-          }, [dispatch,newURL]);
+          }, [newURL,dispatch]);
 
           //Handles what happens when search is cleared but user
           const handleBackClick = (e) => {

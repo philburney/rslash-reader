@@ -37,7 +37,7 @@ export const articlePreviewsSlice = createSlice ({
     isloadingArticlePreviews: false,
     hasError:false,
     sectionTitle:"",
-    sectionUrl:"https://www.reddit.com/r/popular.json",
+    sectionUrl:"",
     inSearch:false
     },
     reducers: {
