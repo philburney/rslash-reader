@@ -1,46 +1,42 @@
-# Getting Started with Create React App and Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Rslash Reader
+### Description
 
-## Available Scripts
+#### Overview:
+Rslash Reader is a reddit reader. It is designed to show simple reddit previews using the reddit API. Users can view posts with comments or view subreddits. They can also use the search to explore the wonderful world of reddit on a given topic.
 
-In the project directory, you can run:
+#### Features
+The Rslash reader allows users to get an overview of articles by first displaying the default "Popular on Reddit". This is not a true subreddit as it curates posts across reddit and is updated constantly. 
+ The user can then either click on the article which will display the Post, the video or image and the first level of comments.
+ 
+ If the user selects a subreddit (either on the previews or within an article) then a preview of articles from within the subreddit will display. This allows the user to view previews of a particular subreddit of interest. 
+ 
+ The user can also use the search bar. Searching within the first page will cause a search across the whole of Reddit. Searching within a subbreddit will cause only items that belong to that subreddit to be displayed. The search can be cleared by clicking the "X" after a search has been completed.
+ 
+ The app is designed to be responsive and uses media queries to help avoid issues over devices.
+ 
+ ### Technologies
+ The app is written in React and makes use of React-Router and Redux. It therefore obviously also uses Javascript, Html and CSS. It also uses a markdown reader to display the comments.
+  The styling was done predominantly by hand. You may notice the reminants of Bootstrap as this was used at one point but actually seemed more of a help than hinderance. Therefore the majority of the css is hand coded.
+  Git was used throughout the project to keep track of versioning. This was very helpful at times!
+  Netifly is where the project is hosted.
+     
+### Rationale
+ The project was created as part of the end of section of the Codecademy Portfolio project. The project was created from scratch using react create-app.
+ 
+ 
+### Challenges
+- There is still some work to do to ensure the app works well on all devices. 
+- There are some times when I had to force a refresh to get a screen update. I assume there is a better way.
+- All searching is done server side. 
+ 
+ 
+ ### Ideas/Improvements
+  - The media that might be presented is not just limited to video and images, so these could be expanded
+  - The comments in a reddit post could have replies. These could be displayed but careful consideration on how to display these to avoid long pages.
+ - Turn it into a PWA
+ - UI tweaks
+ - Find how to get sound on the videos!
+ 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
