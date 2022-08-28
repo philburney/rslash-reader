@@ -40,7 +40,7 @@ function App() {
            <Route path="/sub/:sub">
               <img src="./redditblue.png" alt="reddit logo" width="60px" className="logo" />
               <Search />
-              <br></br>
+            
               <ArticlePreviews /> 
             </Route>
             <Route exact path="/">

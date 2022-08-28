@@ -15,8 +15,7 @@ import { useSelector, useDispatch } from 'react-redux';
 //This is importing the settings to know whether the nav bar is displaying the preview or an article
 import { setActive, selectActive } from '../features/articles/articleSlice';
 
-//This is used for Boostrap buttons.
-import Button from 'react-bootstrap/Button';
+
 
 
 export const Nav =  () => {
@@ -53,8 +52,8 @@ export const Nav =  () => {
      //The return is displaying the 2 Boostrap Buttons
  return (
     <nav> 
-      <Button variant="primary" className="homebutton" onClick={handleClick}><img src='./home.png' alt="home button" className="homeicon"></img></Button>{' '}
-      <Button variant="primary" className="backbutton" onClick={handleBackClick}><img src='./back.png' alt="back button" className="backicon"></img></Button>{' '}
+      <button  className="homebutton" onClick={handleClick}><img src='./home.png' alt="home button" className="homeicon"></img></button>{' '}
+      <button  className="backbutton" onClick={handleBackClick}><img src='./back.png' alt="back button" className="backicon"></img></button>{' '}
     </nav>
  )
 }
